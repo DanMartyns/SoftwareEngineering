@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        /*
+        stage('Cloning repository') {
+            steps {
+                git(
+                    branch: 'master',
+                    credentialsId: 'id',
+                    url: 'https://github.com/DanMartyns/SoftwareEngineering.git'
+                )
+            }
+        }
+    }
+}

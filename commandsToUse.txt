@@ -36,12 +36,5 @@
 
 3. CREATE DOCKER WITH Jenkins
 
-    -> docker run --name jenkinsci -p 8080:8080 jenkins/jenkins:lts
-	
-	password : 30dc39051bf3439487aa757f57f193e2
-	
-	username : tester
-	password : tester
-	fullname : tester
-	e-mail	 : tester@tester.com
+    -> docker run --name jenkins -p 8080:8080 jenkins/jenkins:lts
 
