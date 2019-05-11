@@ -38,3 +38,21 @@
 
     -> docker run --name jenkins -p 8080:8080 jenkins/jenkins:lts
 
+4. CREATE DOCKER WITH MySQL
+
+    creates a MySQL running in a container name SoftwareEngineering. 
+    The file system will be mapped on local host c:\\tmp\\mysql
+            It will create "SoftwareEngineering" database on startup.
+            The root password will be "es"
+            It will create an user "User" with password "es"
+            It will export the port 3307 of the container ( default port on mysql is 3306) 
+
+
+    -> docker run --name Database -e MYSQL_ROOT_PASSWORD=es -e MYSQL_DATABASE=DataBase -e MYSQL_USER=User -e MYSQL_PASSWORD=es -p 3307:3307 -d mysql:latest
+
+
+4.1 ACCESS DATABASE
+
+    -> docker exec -it SoftwareEngineering bash
+    -> mysql -u User -p
+
