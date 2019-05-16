@@ -1,6 +1,6 @@
 {
-  "name": "Alert",
+  "name": "Body",
   "version": "0.0.0",
   "private": true,
-  "main": "./Alert.js"
+  "main": "./Body.js"
 }

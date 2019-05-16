@@ -1,6 +1,6 @@
 {
-  "name": "Farm",
+  "name": "Full",
   "version": "0.0.0",
   "private": true,
-  "main": "./Farm.js"
+  "main": "./Full.js"
 }

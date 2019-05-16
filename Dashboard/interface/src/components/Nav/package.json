@@ -1,6 +1,6 @@
 {
-  "name": "Farms",
+  "name": "Nav",
   "version": "0.0.0",
   "private": true,
-  "main": "./Farms.js"
+  "main": "./Nav.js"
 }

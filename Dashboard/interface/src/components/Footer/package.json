@@ -1,6 +1,6 @@
 {
-  "name": "Sensor",
+  "name": "Footer",
   "version": "0.0.0",
   "private": true,
-  "main": "./Sensor.js"
+  "main": "./Footer.js"
 }
