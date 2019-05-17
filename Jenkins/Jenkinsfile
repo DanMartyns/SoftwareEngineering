@@ -35,7 +35,7 @@ pipeline {
         stage ('Deploy') {
             steps{
                 echo 'Deploying'
-                sh 'java -jar MainProject/dockerdemo/target/MainProgram.jar'
+                sh 'docker-compose up -d'
 
             }   
         }
