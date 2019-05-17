@@ -66,13 +66,15 @@ public class dataSensor {
         return false;
     }
     
-    public static void contentFolder() {
+    public static String contentFolder() {
+        String content = "";
         File dir = new File(".");
         File[] filesList = dir.listFiles();
         for (File file : filesList) {
             if (file.isFile()) {
-                System.out.println("Filename : "+file.getName());
+                content += file.getName();
             }
         }
+        return content;
     }
 }

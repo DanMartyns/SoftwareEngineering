@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven'
+        jdk 'jdk'
+    }
     stages {
         stage('Cloning repository') {
             steps {
@@ -10,5 +14,31 @@ pipeline {
                 )
             }
         }
+        stage ('Build') {
+            steps {
+                echo 'Building'
+                sh 'mvn -f MainProject/dockerdemo/pom.xml -Dmaven.test.failure.ignore=false package' 
+            }
+        }
+        stage('Build (without tests)') {
+            steps {
+                sh './Jenkins/scripts/build_without_tests.sh'
+            }
+        }
+        
+        stage('Build (with tests)') {
+            steps {
+                // Build will stop if one of the tests went wrong
+                sh './Jenkins/scripts/build_with_tests.sh'
+            }
+        }
+        stage ('Deploy') {
+            steps{
+                echo 'Deploying'
+                sh 'java -jar MainProject/dockerdemo/target/MainProgram.jar'
+
+            }   
+        }
+
     }
 }

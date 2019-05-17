@@ -37,9 +37,8 @@ public class DataSensorController {
     
     @GetMapping(value = "/read")
     public String read() throws JSONException, Exception {
-        final String path = "src/main/java/Data/ecg_3219.json";
-        //dataSensor.contentFolder();
-        //final String path = "Data/ecg_3219.json";
+        //final String path = "src/main/java/Data/ecg_3219.json";
+        final String path = "Data/ecg_3219.json";
         
         if (dataSensor.exists(path)) {
             JSONObject jsonObject = (JSONObject) dataSensor.processFile(path);
@@ -49,7 +48,7 @@ public class DataSensorController {
             return jsonObject.toString();
         }
             logger.info("File not Found");
-            return "File not Found";
+            return "File not Found "+dataSensor.contentFolder().toString()+"end content";
        
     }
     

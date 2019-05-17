@@ -142,6 +142,7 @@
                 </configuration>
             </plugin>                       
         </plugins>
+	<finalName>MainProgram</finalName>
     </build>
 
 
