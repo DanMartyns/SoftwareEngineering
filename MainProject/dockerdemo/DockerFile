@@ -1,0 +1,7 @@
+FROM java:8
+EXPOSE 8080
+RUN mkdir -p Data
+COPY /src/main/java/Data/ecg_3219.json Data/ecg_3219.json
+COPY /src/main/resources/mysql-connector-java-8.0.16.jar mysql-connector-java-8.0.16.jar
+ADD /target/dockerdemo.jar dockerdemo.jar
+ENTRYPOINT ["java","-classpath","mysql-connector-java-8.0.16.jar:.", "-jar", "dockerdemo.jar"]
