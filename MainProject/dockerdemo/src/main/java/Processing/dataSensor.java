@@ -5,11 +5,9 @@
  */
 package Processing;
 
-import Controller.DataSensorController;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -24,7 +22,6 @@ import org.springframework.stereotype.Component;
  * @author danielmartins
  */
 @Component
-@Slf4j
 public class dataSensor {
     
     private static final Logger logger = LoggerFactory.getLogger(dataSensor.class);

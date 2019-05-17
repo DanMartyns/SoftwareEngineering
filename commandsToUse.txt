@@ -2,57 +2,34 @@
 
     -> docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 
-2. CREATE DOCKER WITH SPOTIFY/KAFKA
-
-    -> docker run -d -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=127.0.0.1 --env ADVERTISED_PORT=9092 --name kafka spotify/kafka
-
-
-
-    ADVERTISTED_HOST was set to kafka, which will allow other containers to be able to run Producers and Consumers.
-    Setting ADVERTISED_HOST to localhost, 127.0.0.1, or 0.0.0.0 will work great only if Producers and Consumers are 
-    started within the kafka container itself, or if you are using DockerForMac and we want to run Producers and Consumers from OSX. 
-    These are far less interesting use cases though, so we'll start Producers and Consumers from other containers.
-
-    We need to use an IP address or hostname in order for the kafka service to be reachable from another container. 
-    IP address is not known before the container is started, so we have to choose a hostname, and I chose kafka in this example.
-
-2.1 CREATE A TOPIC
-    
-    -> docker exec kafka /opt/kafka_2.11-0.10.1.0/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Weather_Topic
-
-    output:
-
-    Created topic "test".
-
-2.2 LIST TOPICS
-    
-    -> docker exec kafka /opt/kafka_2.11-0.10.1.0/bin/kafka-topics.sh 
-        --list 
-        --zookeeper localhost:2181
-
-    output:
-
-        test
-
-3. CREATE DOCKER WITH Jenkins
+2. CREATE DOCKER WITH Jenkins
 
     -> docker run --name jenkins -p 8080:8080 jenkins/jenkins:lts
 
-4. CREATE DOCKER WITH MySQL
+3. CREATE DOCKER WITH MySQL
 
     creates a MySQL running in a container name SoftwareEngineering. 
     The file system will be mapped on local host c:\\tmp\\mysql
             It will create "SoftwareEngineering" database on startup.
             The root password will be "es"
             It will create an user "User" with password "es"
-            It will export the port 3307 of the container ( default port on mysql is 3306) 
+            It will export the port 3306 of the container ( default port on mysql is 3306 ) 
 
 
-    -> docker run --name Database -e MYSQL_ROOT_PASSWORD=es -e MYSQL_DATABASE=DataBase -e MYSQL_USER=User -e MYSQL_PASSWORD=es -p 3307:3307 -d mysql:latest
+    -> docker run --name SoftwareEngineering -e MYSQL_ROOT_PASSWORD=es -e MYSQL_DATABASE=database -e MYSQL_USER=User -e MYSQL_PASSWORD=es -p 3306:3306 -d mysql:latest
 
 
 4.1 ACCESS DATABASE
 
+    To access the database write in the terminal the following commands :  
+
     -> docker exec -it SoftwareEngineering bash
     -> mysql -u User -p
+    
+    In the step above, the database will ask you for a password. The value of the password is "es"
+    After entering the database, write the following commands if you want to see the content of the table, for example :
+    
+    -> use database;
+    -> show tables;
+    -> SELECT * FROM ecg;
 
