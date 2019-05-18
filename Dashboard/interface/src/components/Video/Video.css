@@ -1,0 +1,7 @@
+.video {
+    display: block;
+    background-color: white;
+    border-color: black;
+    height: 500px;
+    width: 800px;
+}

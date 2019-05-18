@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import Header from '../../components/Header/';
 import Nav from '../../components/Nav/';
-import Footer from '../../components/Footer/';
 import Body from '../../components/Body/';
-
-
+import './Full.css'
 
 class Full extends Component {
     
@@ -16,10 +13,8 @@ class Full extends Component {
         return (
             <html>         
                 <div className="app">
-                    <Header/>
                     <Nav />
                     <Body />
-                    <Footer/>
                 </div>
             </html>
         );
