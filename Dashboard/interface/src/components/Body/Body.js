@@ -7,30 +7,59 @@ import Video from '../Video/';
 import './Body.css'
 class Body extends Component {
 
-  render() {
-    return (
-      <body>    
-        <h1>Results of an ECG in reaction to a video</h1>
-        <div class="split left">
-          <div class="centered">
-            <Video />            
-          </div>
-        </div>
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+      isLoaded: false,
+    }
+  }
 
-        <div class="split right">
-          <div class="centered">
-            <div className="linha">
-              <DisplayResultID title="ID" result ="1"/>
-              <DisplayResultSN title="Sensor's Name" result ="1L101"/>  
+  componentDidMount() {
+    fetch('http://172.16.238.20:8080/data/read')
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          isLoaded: true,
+          items: json,
+        })
+      })
+      .catch(function(error) {
+        console.log('Looks like there was a problem: \n', error);
+      });
+  }  
+  render() {
+    var { isLoaded, items } = this.state;
+    console.log(isLoaded);
+    console.log(items);
+    if(!isLoaded) {
+      return <div><h1>Loading...</h1></div>
+    }
+    else {
+      return (
+        <body>    
+          <h1>Results of an ECG in reaction to a video</h1>
+          <div className="split left">
+            <div className="centered">
+              <Video />            
             </div>
-            <div className="linha">
-              <DisplayResultHR title="Heart Rate" result ="110"/>
-              <DisplayResultDT title="ECG Data Type" result ="VJ_ECG"/>
-            </div> 
           </div>
-        </div>
-      </body>
-    );
+
+          <div className="split right">
+            <div className="centered">
+              <div className="linha">
+                <DisplayResultID title="ID" result ={items.id}/>
+                <DisplayResultSN title="Sensor's Name" result = {items.sensor} />  
+              </div>
+              <div className="linha">
+                <DisplayResultHR title="Heart Rate" result ="110"/>
+                <DisplayResultDT title="ECG Data Type" result ={items.datatype}/>
+              </div> 
+            </div>
+          </div>
+        </body>
+      );
+    }
   }
 }
 

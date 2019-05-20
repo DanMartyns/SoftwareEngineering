@@ -10,13 +10,11 @@ class Full extends Component {
     };
 
     render() {
-        return (
-            <html>         
-                <div className="app">
-                    <Nav />
-                    <Body />
-                </div>
-            </html>
+        return (         
+            <div className="app">
+                <Nav />
+                <Body />
+            </div>
         );
     }
 }

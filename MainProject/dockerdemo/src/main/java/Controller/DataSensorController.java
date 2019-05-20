@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import AccessData.ECGServiceImpl;
 import Service.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 /**
  *
  * @author danielmartins
@@ -36,6 +37,8 @@ public class DataSensorController {
     ECGServiceImpl ecgService;
     
     @GetMapping(value = "/read")
+    //@CrossOrigin(origins = "http://172.16.238.40:3000/")
+    @CrossOrigin(origins = "http://localhost:3000/")
     public String read() throws JSONException, Exception {
         //final String path = "src/main/java/Data/ecg_3219.json";
         final String path = "Data/ecg_3219.json";
@@ -48,7 +51,7 @@ public class DataSensorController {
             return jsonObject.toString();
         }
             logger.info("File not Found");
-            return "File not Found "+dataSensor.contentFolder().toString()+"end content";
+            return null;
        
     }
     
