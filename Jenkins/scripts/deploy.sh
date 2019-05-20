@@ -40,5 +40,5 @@ sshpass -e ssh -o StrictHostKeyChecking=no $MACHINE_USERNAME@$MACHINE_HOSTNAME "
     rm $DEPLOY_PATH/$DEPLOY_FOLDER.tgz"
 
 # Clean up things
-rm -rf $DEPLOY_FOLDER
-rm $DEPLOY_FOLDER.tgz
+#rm -rf $DEPLOY_FOLDER
+#rm $DEPLOY_FOLDER.tgz
