@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export SSHPASS='enterro2019'
+
 MODULES=(
     MainProject
 )
@@ -30,7 +32,7 @@ tar -zcvf $DEPLOY_FOLDER.tgz $DEPLOY_FOLDER
 scp -o StrictHostKeyChecking=no $DEPLOY_FOLDER.tgz $MACHINE_USERNAME@$MACHINE_HOSTNAME:~/$DEPLOY_PATH
 
 # Decompress builded modules and restart docker container
-ssh -o StrictHostKeyChecking=no $MACHINE_USERNAME@$MACHINE_HOSTNAME "mkdir -p $DEPLOY_PATH &&
+sshpass -e ssh -o StrictHostKeyChecking=no $MACHINE_USERNAME@$MACHINE_HOSTNAME "mkdir -p $DEPLOY_PATH &&
     rm -rf $DEPLOY_PATH/$DEPLOY_FOLDER &&
     tar -zxvf $DEPLOY_PATH/$DEPLOY_FOLDER.tgz -C $DEPLOY_PATH &&
     docker restart softwareengineering_main_1 &&
