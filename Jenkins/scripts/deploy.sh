@@ -7,7 +7,7 @@ MODULES=(
 )
 
 FOLDERS=(
-    MainProject/dockerdemo
+    MainProject
 )
 
 DEPLOY_FOLDER=project_modules
