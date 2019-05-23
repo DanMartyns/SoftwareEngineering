@@ -20,7 +20,7 @@ mkdir -p $DEPLOY_FOLDER
 
 for i in ${!MODULES[@]}; do
     # Join jar and build in one folder
-    cp -r ${MODULES[$i]}/target/${FOLDERS[$i]} $DEPLOY_FOLDER
+    cp -r ${MODULES[$i]}/target/dependency $DEPLOY_FOLDER
     cp ${MODULES[$i]}/target/${FOLDERS[$i]}.jar $DEPLOY_FOLDER
 done
 
