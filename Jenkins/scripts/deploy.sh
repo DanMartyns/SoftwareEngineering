@@ -29,7 +29,7 @@ cp -r Dashboard/interface $DEPLOY_FOLDER
 
 # Compress folder and send it to the deploy machine
 tar -zcvf $DEPLOY_FOLDER.tgz $DEPLOY_FOLDER
-scp -o StrictHostKeyChecking=no $DEPLOY_FOLDER.tgz $MACHINE_USERNAME@$MACHINE_HOSTNAME:~/$DEPLOY_PATH
+sshpass -e scp -o StrictHostKeyChecking=no $DEPLOY_FOLDER.tgz $MACHINE_USERNAME@$MACHINE_HOSTNAME:~/$DEPLOY_PATH
 
 # # Decompress builded modules and restart docker container
 # sshpass -e ssh -o StrictHostKeyChecking=no $MACHINE_USERNAME@$MACHINE_HOSTNAME 
