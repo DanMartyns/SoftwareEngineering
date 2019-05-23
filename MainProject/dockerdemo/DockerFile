@@ -4,4 +4,4 @@ RUN mkdir -p Data
 COPY /src/main/java/Data/ecg_3219.json Data/ecg_3219.json
 COPY /src/main/resources/mysql-connector-java-8.0.16.jar mysql-connector-java-8.0.16.jar
 ADD /target/MainProgram.jar MainProgram.jar
-ENTRYPOINT ["java","-classpath","MainProject/dockerdemo/src/main/resources/mysql-connector-java-8.0.16.jar:.", "-jar", "MainProgram.jar"]
+ENTRYPOINT ["java","-classpath","/home/p2g1/SoftwareEngineering/MainProject/dockerdemo/src/main/resources/mysql-connector-java-8.0.16.jar:.", "-jar", "MainProgram.jar"]
