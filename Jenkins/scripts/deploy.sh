@@ -7,7 +7,7 @@ MODULES=(
 )
 
 FOLDERS=(
-    MainProject
+    MainProgram
 )
 
 DEPLOY_FOLDER=project_modules
