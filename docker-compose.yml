@@ -26,6 +26,7 @@ services :
                         - "8080:8080"  
                 depends_on :
                     - mysql
+                    - elasticsearch
         dashboard :
                 build:
                         context: ./Dashboard/interface
@@ -42,7 +43,18 @@ services :
                         - NODE_ENV=development
                 depends_on:
                         - main
-
+        elasticsearch:
+                container_name : Elastic_Search
+                build:
+                        context: elasticsearch/
+                volumes:
+                        - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+                ports:
+                        - "9200:9200"
+                        - "9300:9300"
+                networks:
+                        global_network:
+                                ipv4_address: 172.16.238.60 
 networks:
         global_network:
                 driver : bridge
