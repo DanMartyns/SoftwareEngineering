@@ -5,9 +5,14 @@
  */
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import javax.persistence.Id;
+import org.springframework.data.elasticsearch.annotations.DateFormat;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 /**
  *
@@ -17,21 +22,25 @@ import org.springframework.data.elasticsearch.annotations.Document;
 public class Stream {
  
     @Id
-    private String id;
-     
+    private int id;
+    
     private Double value;
-     
+
+    @Field(type = FieldType.Date, store = true, format = DateFormat.custom, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @JsonProperty(value = "@timestamp")
     private Date timestamp;
+
 
     public Stream() {
     }
 
-    public Stream(Double value, Date timestamp) {
+    public Stream(int id, Double value, Date timestamp) {
+        this.id = id;
         this.value = value;
         this.timestamp = timestamp;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -43,6 +52,10 @@ public class Stream {
         return timestamp;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }    
+    
     public void setValue(Double value) {
         this.value = value;
     }
@@ -55,6 +68,9 @@ public class Stream {
     public String toString() {
         return "Stream{" + "id=" + id + ", value=" + value + ", timestamp=" + timestamp + '}';
     }
+    
+
+
     
     
 }
