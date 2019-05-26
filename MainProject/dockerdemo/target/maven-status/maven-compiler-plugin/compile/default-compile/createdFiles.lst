@@ -8,6 +8,7 @@ Model/Stream.class
 AccessData/ECGService.class
 Controller/HomeController.class
 Service/StreamServiceImpl.class
+MainPackage/Config.class
 Service/StreamService.class
 MainPackage/ESApplication.class
 Repository/StreamRepository.class

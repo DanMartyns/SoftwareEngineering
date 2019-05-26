@@ -92,7 +92,7 @@
                 <groupId>org.springframework.kafka</groupId>
                 <artifactId>spring-kafka</artifactId>
                 <type>jar</type>
-            </dependency>
+            </dependency>           
 	</dependencies>
 
     <build>

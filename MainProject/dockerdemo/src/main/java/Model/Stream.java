@@ -5,7 +5,6 @@
  */
 package Model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import javax.persistence.Id;
@@ -22,8 +21,10 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 public class Stream {
  
     @Id
+    @Field(type = FieldType.Integer, store = true)
     private int id;
     
+    @Field(type = FieldType.Double, store = true)
     private Double value;
 
     @Field(type = FieldType.Date, store = true, format = DateFormat.custom, pattern = "yyyy-MM-dd'T'HH:mm:ss")

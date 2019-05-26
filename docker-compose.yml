@@ -58,6 +58,20 @@ services :
                 networks:
                         global_network:
                                 ipv4_address: 172.16.238.60
+        kibana:
+                container_name : Kibana
+                build:
+                        context: kibana/
+                volumes:
+                        - ./kibana/config/:/usr/share/kibana/config:ro
+                ports:
+                        - "5601:5601"
+                networks:
+                        global_network:
+                                ipv4_address: 172.16.238.70
+                depends_on:
+                        - elasticsearch                                                               
+
         grafana :
                 image : 'grafana/grafana:latest'
                 container_name : Grafana
@@ -81,7 +95,8 @@ services :
                         - GF_ALERTING_ERROR_OR_TIMEOUT=keep_state
                 restart: always                
                 depends_on :
-                        - elasticsearch                                       
+                        - elasticsearch                                             
+
 networks:
         global_network:
                 driver : bridge

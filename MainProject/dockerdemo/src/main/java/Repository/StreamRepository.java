@@ -15,6 +15,6 @@ import org.springframework.stereotype.Repository;
  * @author danielmartins
  */
 @Repository
-public interface StreamRepository extends ElasticsearchRepository<Stream, String> {    
+public interface StreamRepository extends ElasticsearchRepository<Stream, Integer> {    
     
 }
