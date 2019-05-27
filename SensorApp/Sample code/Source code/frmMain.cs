@@ -59,6 +59,8 @@ namespace TestBioLib
         private bool statusRadioEvent = true;
         private int countTicks = 0;
 
+        private string deviceId = null;
+
         /// <summary>
         /// BioLib
         /// </summary>
@@ -326,6 +328,7 @@ namespace TestBioLib
             {
                 ErrorLog.WriteLogFile(applicationPath, "[DeviceIdReceived]: " + Environment.NewLine + ex.Message + Environment.NewLine + ex.StackTrace);
             }
+
         }
 
         private void FirmwareVersionReceived(string version)
@@ -593,7 +596,10 @@ namespace TestBioLib
         /// <param name="deviceId">device Id</param>
         private void UpdateDeviceId(string deviceId)
         {
+            this.deviceId = deviceId;
+
             lblDeviceId.Text = deviceId;
+
         }
 
         /// <summary>
@@ -622,29 +628,14 @@ namespace TestBioLib
             if (form != null)
                 form.SetQrs1(lblQRS.Text);
 
-            Console.WriteLine(qrs.bpmi);
-
             using (var p = new ProducerBuilder<string, string>(config).Build())
             {
                 try
                 {
-                    var dr = await p.ProduceAsync("bpmi-topic", new Message<string, string> { Key = "bpmi", Value = qrs.bpmi.ToString() });
-                    Console.WriteLine($"Delivered '{dr.Value}' to '{dr.TopicPartitionOffset}'");
+                    var dr = await p.ProduceAsync("bpmi-topic", new Message<string, string> { Key = deviceId, Value = qrs.bpmi.ToString() });
+                    Console.WriteLine($"Delivered '{dr.Value}' to '{dr.TopicPartitionOffset}' ' from ' {dr.Key}");
                 }
-                catch (ProduceException<Null, string> e)
-                {
-                    Console.WriteLine($"Delivery failed: {e.Error.Reason}");
-                }
-            }
-
-            using (var p = new ProducerBuilder<string, string>(config).Build())
-            {
-                try
-                {
-                    var dr = await p.ProduceAsync("full_qrs-topic", new Message<string, string> { Key = "full qrs", Value = qrs.ToString() });
-                    Console.WriteLine($"Delivered '{dr.Value}' to '{dr.TopicPartitionOffset}'");
-                }
-                catch (ProduceException<Null, string> e)
+                catch (ProduceException<string, string> e)
                 {
                     Console.WriteLine($"Delivery failed: {e.Error.Reason}");
                 }
