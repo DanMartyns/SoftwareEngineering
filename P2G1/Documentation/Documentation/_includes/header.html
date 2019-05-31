@@ -1,0 +1,30 @@
+<header id="header">
+
+				<h1 id="logo"><img style="margin-top:-10px; display: inline-block;" src="{{ site.baseurl }}/images/logo-small.png" /></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="{{ site.baseurl }}/">Home</a></li>
+                        {% assign grouped = site.docs | group_by: 'category' %}
+                        {% for group in grouped %}
+                            {% assign items = group.items | sort: 'order' %}
+                            <li class="submenu">
+                                <a href="{{ site.baseurl }}{{ items.first.url }}">{{ group.name }}</a>
+                                <ul>
+                                {% for item in items %}
+                                    <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+                                {% endfor %}
+                                {% if group.name == 'Developer' %}
+                                    <li><a href="https://gitlab.com/deti-smartfarm" target="_blank">Code Repository</a></li>
+                                {% endif %}
+                                {% if group.name == 'Team' %}
+                                    <li><a href="{{ site.baseurl }}/blog.html">Weekly log</a></li>
+                                    <li><a href="https://docs.google.com/spreadsheets/d/104kt8YnjNS1ZUFQNQ1pesl0or72m1JpABVdut2p8vCI/edit?usp=sharing" target="_blank">Timesheet</a></li>
+                                {% endif %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                        <!--<li><a href="{{ baseurl }}/contact.html">About us</a></li>-->
+						<!--<li><a href="#" class="button special">Sign Up</a></li>-->
+					</ul>
+				</nav>
+			</header>

@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Week 7!"
+date:   2018-04-22 15:00:00
+permalink: /week7.html
+---
+<span class="image featured"><img src="{{ site.baseurl }}/images/logo-medium.png" alt=""></span>
+
+This week, the API documentation was finalized, which allows us to use the documentation to communicate with stubs between the UI and the backend.
+
+The alert module was introduced, with maximum and minimum thresholds.
+
+On the UI, the alerts page was added, as well as its insertion.
+
+Many UI bugs were solved, related to the sensor page and the backend API's.

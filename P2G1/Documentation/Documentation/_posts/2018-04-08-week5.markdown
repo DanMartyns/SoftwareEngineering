@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Week 5!"
+date:   2018-04-08 15:00:00
+permalink: /week5.html
+---
+<span class="image featured"><img src="{{ site.baseurl }}/images/logo-medium.png" alt=""></span>
+
+This week was part of the Easter holidays, yet we refactored the data format coming from sensors and added persistence to the messages comming from sensors.
+We also tried to fix and actually fixed some problems on modules started in week 4.

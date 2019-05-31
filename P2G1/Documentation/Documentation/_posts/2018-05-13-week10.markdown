@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "Week 10!"
+date:   2018-05-13 15:00:00
+permalink: /week10.html
+---
+<span class="image featured"><img src="{{ site.baseurl }}/images/logo-medium.png" alt=""></span>
+
+On this week we have started the integration tests to our platform, using Cucumber and the use cases pre-defined in our documentation.
+
+The actuator module was added, allowing the user to send values to an actuator sensor whenver he wants to, or with a pre-defined alert associated.
+
+The platform authentication was also started, but it is still not concluded, as well as the integration with the TICK stack.

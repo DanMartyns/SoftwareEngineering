@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "Week 9!"
+date:   2018-05-06 15:00:00
+permalink: /week9.html
+---
+<span class="image featured"><img src="{{ site.baseurl }}/images/logo-medium.png" alt=""></span>
+
+This week we have introduced *Kafka Streams* in our project. It was not easy, but we managed to use *Kafka Streams* to calculate the average from all the data sent from a sensor.
+
+We have also used it to trigger an alert whenever a new value is received from a sensor.
+
+Whenever a sensor received a new data, it also sends the status field. Also with kafka streams, if a sensor sends a status that is different from the previous one, the platform updates the sensor description with th new state.
+
+We have fixed a major bug, where the databases would not persist data after the container was closed.
+
+On the UI, the average values for a sensor are also displayed on the sensor data chart, allowing for an easier view of the received data from a sensor.

@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "Week 11!"
+date:   2018-05-20 15:00:00
+permalink: /week11.html
+---
+<span class="image featured"><img src="{{ site.baseurl }}/images/logo-medium.png" alt=""></span>
+
+On this week we have presented the Milestone 5.
+
+As asked, the integration tests were finalized, with the help of Cucumber.
+
+We have also introduced the TICK stack and the ELK stack on our platform: The TICK stack will allow us to monitor in as easy and fashionable way our infrastructure resources; The ELK stack will allow us to manage the logs from our system in a centralized way.
+
+With the virtual machines ready, all our efforts were channeled to the deployment of the platform in the virtual machines, which was successfully done. Using shared resources (Kafka, InfluxDB, MongoDB, PostgreSQL, Jenkins and ElasticSearch) we were able to offload our deployment infrastructure, making it easy to run on the given VM's.
+
+Finally, we have also started working on the Jenkins pipeline configuration.

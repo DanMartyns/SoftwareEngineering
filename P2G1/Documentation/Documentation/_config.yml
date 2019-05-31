@@ -1,0 +1,80 @@
+title: SmartFarm
+email: smartfarm@ua.pt
+description: >
+    The tool to help farmers monitor their farms.
+url: "http://xcoa.av.it.pt"
+owner_name: smartfarm
+owner_url: https://gitlab.com/deti-smartfarm
+repository_name: deti.smartfarm.gitlab.io
+repository_url: https://gitlab.com/deti-smartfarm/deti-smartfarm.gitlab.io
+twitter_username: smartfarm
+github_username:  smartfarm
+
+# Serving
+detach:  false
+port:    4000
+host:    127.0.0.1
+baseurl: ""
+#baseurl: "/~es2017-2018_g202"
+show_dir_listing: false
+
+show_full_navigation: true
+
+gems:
+  - jekyll-sitemap
+
+# Build settings
+markdown: kramdown
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - node_modules
+  - package.json
+  - Rakefile
+  - README
+  - tmp
+
+collections:
+  docs:
+    title: Documentation
+    permalink: /:path/
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
+  -
+    scope:
+      path: ""
+      type: "docs"
+    values:
+      seo:
+        type: Article
+      _comments:
+        category: Group navigation links with this field
+        order: Used to sort links in the navigation
+

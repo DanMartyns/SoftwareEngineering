@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body class="left-sidebar">
+
+    {% include header.html %}
+
+    <section id="main" class="doc">
+
+                <header class="special container">
+                    <span class="icon fa-laptop"></span>
+                    <h3>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h3>
+                    <h2><strong>{{ page.title }}</strong></h2>
+                </header>
+
+                <!-- One -->
+                <section class="wrapper style4 container">
+
+                    <div class="row oneandhalf">
+                        <div class="4u">
+
+                            <!-- Sidebar -->
+                                <div class="sidebar">
+                                    <section>
+                                        <nav {% if site.show_full_navigation %}class="full-navigation"{% endif %}>
+                                            <ul>
+                                                {% assign grouped = site.docs | group_by: 'category' %}
+                                                {% for group in grouped %}
+                                                <li class="docs-nav-item top-level {% if group.name == page.category %}current{% endif %}">
+                                                    {% assign items = group.items | sort: 'order' %}
+                                                    <a href="{{ site.baseurl }}{{ items.first.url }}">{{ group.name }}</a>
+                                                    <ul>
+                                                        {% for item in items %}
+                                                        <li class="docs-nav-item {% if item.url == page.url %}current{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+                                                        {% endfor %}
+                                                        {% if group.name == 'Developer' %}
+                                                            <li class="docs-nav-item">
+                                                                <a href="https://gitlab.com/deti-smartfarm" target="_blank">Code Repository</a>
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if group.name == 'Team' %}
+                                                            <li class="docs-nav-item">
+                                                                <a href="{{ site.baseurl }}/blog.html">Weekly log</a>
+                                                            </li>
+                                                            <li class="docs-nav-item">
+                                                                <a href="https://docs.google.com/spreadsheets/d/104kt8YnjNS1ZUFQNQ1pesl0or72m1JpABVdut2p8vCI/edit?usp=sharing" target="_blank">Timesheet</a>
+                                                            </li>
+                                                        {% endif %}
+                                                    </ul>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+
+                                            <ul>
+                                                <li class="nav-item top-level {% if page.url == '/design/' %}current{% endif %}">
+                                                    {% assign design = site.html_pages | where: 'url', '/design/' | first %}
+                                                    <a href="{{ site.baseurl }}/design/">{{ design.title }}</a>
+                                                </li>
+                                            </ul>
+
+                                            <ul>
+
+                                            </ul>
+                                        </nav>
+
+                                    </section>
+                                </div>
+
+                        </div>
+                        <div class="8u skel-cell-important">
+                            <!-- Content -->
+                            <article class="content">
+                                {{ content }}
+                            </article>
+
+                        </div>
+                    </div>
+                </section>
+
+            </section>
+
+
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
