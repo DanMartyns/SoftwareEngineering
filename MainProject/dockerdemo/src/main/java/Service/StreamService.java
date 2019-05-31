@@ -6,7 +6,6 @@
 package Service;
 
 import Model.Stream;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -16,7 +15,7 @@ import java.util.Optional;
 
 public interface StreamService {
     
-    Iterable<Stream> saveAll(List<Stream> stream);
+    Stream save(Stream stream);
 
     Optional<Stream> findOne(int id);
 

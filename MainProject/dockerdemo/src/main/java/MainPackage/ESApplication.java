@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import Controller.HomeController;
 import Controller.DataSensorController;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import Service.ConfigKafka;
+import Service.Producer;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -14,15 +14,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@SpringBootApplication(scanBasePackages={
-"AccessData", "Controller","Model","Processing","Repository","Service"})
-@ComponentScan(basePackageClasses = HomeController.class)
+@SpringBootApplication(scanBasePackages={"AccessData", "Controller","Model","Processing","Repository","Service"})
 @ComponentScan(basePackageClasses = DataSensorController.class)
+@ComponentScan(basePackageClasses = ConfigKafka.class)
 @ComponentScan(basePackageClasses = Config.class)
+@ComponentScan(basePackageClasses = Producer.class)
 @EnableJpaAuditing
 @EnableScheduling
 @EnableJpaRepositories("Repository")
-@EnableAutoConfiguration
 @EntityScan("Model")
 public class ESApplication {
 

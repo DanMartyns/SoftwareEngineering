@@ -1,0 +1,2 @@
+FROM mysql:latest
+EXPOSE 42336:3306

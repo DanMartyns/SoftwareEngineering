@@ -5,14 +5,12 @@
  */
 package Model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.DateFormat;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
-
 /**
  *
  * @author danielmartins
@@ -21,14 +19,16 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 public class Stream {
  
     @Id
-    @Field(type = FieldType.Integer, store = true)
     private int id;
     
     @Field(type = FieldType.Double, store = true)
     private Double value;
 
-    @Field(type = FieldType.Date, store = true, format = DateFormat.custom, pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    @JsonProperty(value = "@timestamp")
+    @Field(
+        type = FieldType.Date, 
+        store = true, 
+        format = DateFormat.custom, pattern = "dd:MM:yy:HH:mm:ss"
+    )
     private Date timestamp;
 
 
@@ -41,7 +41,7 @@ public class Stream {
         this.timestamp = timestamp;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -51,10 +51,6 @@ public class Stream {
 
     public Date getTimestamp() {
         return timestamp;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }    
     
     public void setValue(Double value) {

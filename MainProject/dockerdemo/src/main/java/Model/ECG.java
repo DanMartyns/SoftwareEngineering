@@ -7,9 +7,13 @@ package Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -26,7 +30,7 @@ import javax.validation.constraints.NotBlank;
 public class ECG implements Serializable {
    
     @Id
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @NotBlank
@@ -45,14 +49,17 @@ public class ECG implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)    
     private Date end;
     
+    @Column(name = "maxValue")      
+    private int maxValue;
+    
     public ECG(){}
     
-    public ECG (int id,String sensor,String datatype,Date start,Date end) {
-        this.id = id;
+    public ECG (String sensor,String datatype,int maxValue, Timestamp start,Timestamp end) {
         this.sensor = sensor;
         this.datatype = datatype;
-        this.start = start;
-        this.end = end;
+        this.maxValue = maxValue;
+        this.start = new Date(start.getTime());
+        this.end = new Date(end.getTime());
     }
 
     public int getId() {

@@ -1,9 +1,24 @@
 version : '3'
 
 services :
+
+        portainer:
+                container_name: Portainer        
+                image: portainer/portainer
+                restart: always
+                networks:
+                        global_network :
+                                ipv4_address: 172.16.238.10
+                ports :
+                        - "42001:9000"                
+                volumes:
+                        - /var/run/docker.sock:/var/run/docker.sock
+                        - /opt/portainer/data:/data
         mysql :
                 container_name : MySQL 
-                image : 'mysql:latest'
+                build:
+                    context: ./SQL
+                    dockerfile: DockerFile                
                 restart : always
                 environment :
                         MYSQL_ROOT_PASSWORD: es
@@ -11,10 +26,10 @@ services :
                         MYSQL_USER: User
                         MYSQL_PASSWORD: es
                 networks :
-                        global_network : 
-                                ipv4_address : 172.16.238.10
+                        global_network :
+                                ipv4_address: 172.16.238.20
                 ports : 
-                        - "3306:3306"
+                        - "42306:3306"
         main :
                 container_name : MainProgram   
                 build:
@@ -23,9 +38,9 @@ services :
                 restart : always
                 networks : 
                         global_network :
-                                ipv4_address : 172.16.238.20
+                                ipv4_address: 172.16.238.30
                 ports : 
-                        - "8080:8080"  
+                        - "42020:8080"  
                 depends_on :
                     - mysql
                     - elasticsearch
@@ -33,7 +48,6 @@ services :
                 container_name : Dashboard     
                 build:
                         context: ./Dashboard/interface
-                        dockerfile: Dockerfile
                 volumes:
                         - './Dashboard/interface:/usr/src/app'
                         - '/usr/src/app/node_modules'
@@ -41,66 +55,56 @@ services :
                         global_network:
                                 ipv4_address: 172.16.238.40
                 ports:
-                        - '3001:3001'
-                environment:
-                        - NODE_ENV=development
+                        - '42002:3000'
                 depends_on:
                         - main
         elasticsearch:
                 container_name : Elastic_Search
+                restart : unless-stopped
                 build:
-                        context: elasticsearch/
+                        context: ElasticSearch/
                 volumes:
-                        - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+                        - ./ElasticSearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
                 ports:
-                        - "9200:9200"
-                        - "9300:9300"
+                        - "42920:9200"
+                        - "42930:9300"
                 networks:
                         global_network:
-                                ipv4_address: 172.16.238.60
+                                ipv4_address: 172.16.238.50
         kibana:
                 container_name : Kibana
                 build:
-                        context: kibana/
+                        context: Kibana/
                 volumes:
-                        - ./kibana/config/:/usr/share/kibana/config:ro
+                        - ./Kibana/config/:/usr/share/kibana/config:ro
                 ports:
-                        - "5601:5601"
+                        - "42560:5601"
                 networks:
                         global_network:
-                                ipv4_address: 172.16.238.70
+                                ipv4_address: 172.16.238.60
                 depends_on:
                         - elasticsearch                                                               
 
-        grafana :
-                image : 'grafana/grafana:latest'
-                container_name : Grafana
-                volumes :
-                        - './grafana/config/:/usr/share/grafana/config:ro'
-                ports :
-                        - "3000:3000"
-                networks :
-                        global_network :
-                                ipv4_address : 172.16.238.50
-                environment:
-                        - GF_SERVER_ROOT_URL=http://projectES.com:3000/
-                        - GF_SECURITY_ADMIN_USER=User
-                        - GF_SECURITY_ADMIN_PASSWORD=enterro2019
-                        - GF_SMTP_ENABLED=true
-                        - GF_SMTP_HOST=smtp.gmail.com:587
-                        - GF_SMTP_USER=grafana@example.com
-                        - GF_SMTP_FROM_ADDRESS=grafana@example.com
-                        - GF_SMTP_PASSWORD=******
-                        - GF_USERS_ALLOW_SIGN_UP=false
-                        - GF_ALERTING_ERROR_OR_TIMEOUT=keep_state
-                restart: always                
-                depends_on :
-                        - elasticsearch                                             
-
+        logstash:
+                container_name : Logstash
+                build:
+                        context: Logstash/
+                volumes:
+                        - ./Logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+                        - ./Logstash/pipeline:/usr/share/logstash/pipeline:ro
+                ports:
+                        - "5000:5000"
+                        - "12201:12201/udp"
+                networks:
+                        global_network:
+                                ipv4_address: 172.16.238.70
+                depends_on: 
+                        - elasticsearch
+                        - main
 networks:
         global_network:
                 driver : bridge
                 ipam : 
                         driver : default
                         config : 
-                                - subnet : 172.16.238.0/24
+                                - subnet : 172.16.238.0/24                

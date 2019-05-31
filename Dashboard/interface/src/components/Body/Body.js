@@ -16,7 +16,7 @@ class Body extends Component {
   }
 
   componentDidMount() {
-    fetch('http://172.16.238.20:8080/data/read')
+    fetch('http://172.16.238.20:42020/')
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -48,12 +48,11 @@ class Body extends Component {
           <div className="split right">
             <div className="centered">
               <div className="linha">
-                <DisplayResultID title="ID" result ={items.id}/>
-                <DisplayResultSN title="Sensor's Name" result = {items.sensor} />  
+                <DisplayResultSN title="Sensor's Name" result = {items.sensor_name} />  
               </div>
               <div className="linha">
                 <DisplayResultHR title="Heart Rate" result ="110"/>
-                <DisplayResultDT title="ECG Data Type" result ={items.datatype}/>
+                <DisplayResultDT title="ECG Data Type" result ={items.current_value_bpm}/>
               </div> 
             </div>
           </div>

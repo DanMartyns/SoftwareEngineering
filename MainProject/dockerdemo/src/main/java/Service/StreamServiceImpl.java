@@ -7,7 +7,6 @@ package Service;
 
 import Model.Stream;
 import Repository.StreamRepository;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +27,8 @@ public class StreamServiceImpl implements StreamService {
     }
 
     @Override
-    public Iterable<Stream> saveAll(List<Stream> stream) {
-        return streamRepository.saveAll(stream);
+    public Stream save(Stream stream) {
+        return streamRepository.save(stream);
     }
 
     @Override

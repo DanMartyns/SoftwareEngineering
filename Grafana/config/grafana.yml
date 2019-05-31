@@ -1,3 +1,0 @@
-server.name: grafana
-server.host: "0"
-mysql.url: http://172.16.238.10:3310

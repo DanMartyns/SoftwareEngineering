@@ -11,14 +11,16 @@ import org.springframework.stereotype.Service;
 public class Producer {
 
     private static final Logger logger = LoggerFactory.getLogger(Producer.class);
-    private static final String TOPIC = "sensor_data";
-
+    private static final String TOPIC = "bpmi-topic";
+    
+    public Producer() {}
+    
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate kafkaTemplate;
 
-    public void sendMessage(String message) {
-        logger.info(String.format("#### -> Producing message -> %s", message));
+    public void sendMessage(String from,Integer message) {
+        //logger.info(String.format("%s -> Producing message -> %s",from, message));
         
-        this.kafkaTemplate.send(new ProducerRecord<>(TOPIC, "FromSpringBoot", message));
-    }
+        this.kafkaTemplate.send(new ProducerRecord<String,Integer>(TOPIC, from, message));
+    } 
 }
