@@ -1,5 +1,6 @@
 package Service;
 
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,6 @@ public class ProducerLOG<K,V> {
     private KafkaTemplate<K,V> kafkaTemplate;
 
     public void sendMessage(V message) {
-        //logger.info(String.format("%s -> Producing message -> %s",from, message));
-        
-        this.kafkaTemplate.send(TOPIC, message);
+        this.kafkaTemplate.send((ProducerRecord<K, V>) new ProducerRecord<>(TOPIC, "LOG", message));
     } 
 }

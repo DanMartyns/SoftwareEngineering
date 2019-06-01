@@ -1,5 +1,7 @@
 FROM java:8
 EXPOSE 42020 42020
+RUN mkdir -p Data
+COPY src/main/java/Data/ecg.txt Data/ecg.txt
 COPY /src/main/resources/mysql-connector-java-8.0.16.jar mysql-connector-java-8.0.16.jar
 ADD /target/MainProgram.jar MainProgram.jar
 ENTRYPOINT ["java","-classpath","/home/danielmartins/Documentos/Universidade/ES/Project/SoftwareEngineering/MainProject/dockerdemo/src/main/resources/mysql-connector-java-8.0.16.jar:.", "-jar", "MainProgram.jar"]

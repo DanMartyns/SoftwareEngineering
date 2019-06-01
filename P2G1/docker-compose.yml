@@ -59,8 +59,7 @@ services :
                 depends_on:
                         - main
         elasticsearch:
-                container_name : Elastic_Search
-                restart : unless-stopped
+                container_name : Elastic_Search     
                 build:
                         context: ElasticSearch/
                 volumes:

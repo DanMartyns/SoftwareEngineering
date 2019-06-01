@@ -18,9 +18,7 @@ public class ProducerBPMI<K,V> {
     @Autowired
     private KafkaTemplate<K,V> kafkaTemplate;
 
-    public void sendMessage(K from,V message) {
-        //logger.info(String.format("%s -> Producing message -> %s",from, message));
-        
+    public void sendMessage(K from,V message) { 
         this.kafkaTemplate.send(new ProducerRecord<>(TOPIC, from, message));
     } 
 }

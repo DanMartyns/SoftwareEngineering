@@ -60,10 +60,11 @@ public class DataSensorController {
     public JSONObject dataReceiver(ConsumerRecord<?,?> cr) throws ParseException{
         
         String key = "";
-        int value = 0;
+        double value = 0;
         Set<String> topicos = topic.getTopics();
         if (!topicos.contains("bpmi-topic")){
             producerLOG.sendMessage(new LoggerMessage("ERROR","Kafka doesn't have the bpmi-topic"));
+            logger.info("Kafka doesn't have the bpmi-topic");
         }
         
         if (topicos.isEmpty() && topicos.contains("bpmi-topic") ){
@@ -71,10 +72,12 @@ public class DataSensorController {
             key = e.getSensor();
             value = e.getMaxValue();
             producerLOG.sendMessage(new LoggerMessage("INFO","The information comes from the Database"));
+            logger.info("The information comes from the Database");
         } else {
             key = (String) cr.key();
-            value = Integer.parseInt(cr.value().toString().split(":")[1].replace("}", ""));
+            value = Double.parseDouble(cr.value().toString().split(":")[1].replace("}", ""));
             producerLOG.sendMessage(new LoggerMessage("INFO","The information comes from the kafka"));
+            logger.info("The information comes from the kafka");
         }
         
         JSONObject json = new JSONObject();
@@ -82,6 +85,7 @@ public class DataSensorController {
         json.put("current_value_bpm", value);
         
         producerLOG.sendMessage(new LoggerMessage("INFO","Send information to DashBoard"));
+        logger.info("Send information to DashBoard");
         
         return json;        
     }   

@@ -49,11 +49,11 @@ public class ECG implements Serializable {
     private Date end;
     
     @Column(name = "maxValue")      
-    private int maxValue;
+    private double maxValue;
     
     public ECG(){}
     
-    public ECG (String sensor,String datatype,int maxValue, Timestamp start,Timestamp end) {
+    public ECG (String sensor,String datatype,double maxValue, Timestamp start,Timestamp end) {
         this.sensor = sensor;
         this.datatype = datatype;
         this.maxValue = maxValue;
@@ -81,7 +81,7 @@ public class ECG implements Serializable {
         return end;
     }
 
-    public int getMaxValue() {
+    public double getMaxValue() {
         return maxValue;
     }
     

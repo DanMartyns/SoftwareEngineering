@@ -11,18 +11,18 @@ package Model;
  */
 public class Stream {
 
-    private int value;
+    private double value;
 
     public Stream(){}
     
-    public Stream(int value){
+    public Stream(double value){
         this.value = value;
     }
     
-    public int getValue(){
+    public double getValue(){
         return value;
     }
-    public void setValue(int value){
+    public void setValue(double value){
         this.value = value;
     }
 }
