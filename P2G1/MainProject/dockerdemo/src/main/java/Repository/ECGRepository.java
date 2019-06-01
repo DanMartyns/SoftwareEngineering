@@ -6,9 +6,9 @@
 package Repository;
 
 import Model.ECG;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 /**
  *
@@ -18,9 +18,8 @@ import org.springframework.stereotype.Repository;
 public interface ECGRepository extends JpaRepository<ECG,Long>{
     /**
      * 
-     * @param sensor
-     * @return sensor's id 
+     * @return the last result
      */
-    @Query("SELECT e.id FROM ECG e WHERE e.sensor = :sensor")
-    public int checkSensor(@Param("sensor") String sensor);
+    @Query("SELECT e FROM ECG e ORDER BY e.id DESC")
+    public List<ECG> lastValue();
 }

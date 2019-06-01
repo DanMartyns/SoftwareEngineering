@@ -5,8 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 import Controller.DataSensorController;
-import Service.ConfigKafka;
-import Service.Producer;
+import Service.ProducerBPMI;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -17,8 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication(scanBasePackages={"AccessData", "Controller","Model","Processing","Repository","Service"})
 @ComponentScan(basePackageClasses = DataSensorController.class)
 @ComponentScan(basePackageClasses = ConfigKafka.class)
-@ComponentScan(basePackageClasses = Config.class)
-@ComponentScan(basePackageClasses = Producer.class)
+@ComponentScan(basePackageClasses = ProducerBPMI.class)
 @EnableJpaAuditing
 @EnableScheduling
 @EnableJpaRepositories("Repository")

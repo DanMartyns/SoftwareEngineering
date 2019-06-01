@@ -7,6 +7,7 @@ package Service;
 
 import Model.ECG;
 import java.text.ParseException;
+import java.util.List;
 import org.json.JSONObject;
 
 /**
@@ -17,4 +18,6 @@ public interface ECGService {
     void save(ECG e) throws ParseException;
     
     double mean(JSONObject values);
+    
+    List<ECG> lastRegistry();
 }

@@ -87,6 +87,7 @@
                 <groupId>org.apache.tomcat.embed</groupId>
                 <artifactId>tomcat-embed-core</artifactId>
                 <type>jar</type>
+                  <version>9.0.17</version>
             </dependency>
             <dependency>
                 <groupId>javax.inject</groupId>
@@ -104,6 +105,12 @@
               <version>7.4.0</version>
               <type>jar</type>
              </dependency>
+	 <dependency>
+	  <groupId>info.cukes</groupId>
+	  <artifactId>gherkin</artifactId>
+	  <version>2.12.2</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
     <build>

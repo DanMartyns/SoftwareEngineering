@@ -8,19 +8,19 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Producer {
+public class ProducerBPMI<K,V> {
 
-    private static final Logger logger = LoggerFactory.getLogger(Producer.class);
+    private static final Logger logger = LoggerFactory.getLogger(ProducerBPMI.class);
     private static final String TOPIC = "bpmi-topic";
     
-    public Producer() {}
+    public ProducerBPMI() {}
     
     @Autowired
-    private KafkaTemplate kafkaTemplate;
+    private KafkaTemplate<K,V> kafkaTemplate;
 
-    public void sendMessage(String from,Integer message) {
+    public void sendMessage(K from,V message) {
         //logger.info(String.format("%s -> Producing message -> %s",from, message));
         
-        this.kafkaTemplate.send(new ProducerRecord<String,Integer>(TOPIC, from, message));
+        this.kafkaTemplate.send(new ProducerRecord<>(TOPIC, from, message));
     } 
 }

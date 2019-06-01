@@ -41,4 +41,9 @@ public class ECGServiceImpl implements ECGService{
         List<String> list = Arrays.asList(values.getString("values").split(" "));
         return list.stream().mapToDouble(Double::parseDouble).average().getAsDouble();
     }
+    
+    @Override
+    public List<ECG> lastRegistry(){
+        return ecgRepository.lastValue();
+    }
 }

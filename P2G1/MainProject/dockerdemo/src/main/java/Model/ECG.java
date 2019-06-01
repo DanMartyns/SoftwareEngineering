@@ -13,7 +13,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -81,6 +80,11 @@ public class ECG implements Serializable {
     public Date getEnd() {
         return end;
     }
+
+    public int getMaxValue() {
+        return maxValue;
+    }
+    
 
     @Override
     public String toString() {
