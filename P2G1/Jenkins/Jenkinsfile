@@ -5,7 +5,7 @@ pipeline {
             steps {
                 git(
                     branch: 'master',
-                    credentialsId: 'c1b055da-53b9-4c9d-8d7b-e9165d36af5c',
+                    credentialsId: '4a17a42d-9a03-4f84-b664-75e41f08424d',
                     url: 'https://github.com/DanMartyns/SoftwareEngineering.git'
                 )
             }
