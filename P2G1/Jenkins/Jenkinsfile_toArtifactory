@@ -3,15 +3,12 @@ node {
     def rtMaven = Artifactory.newMavenBuild()
     def buildInfo
 
-        stage('Cloning repository') {
-            steps {
-                git(
-                    branch: 'master',
-                    credentialsId: 'c1b055da-53b9-4c9d-8d7b-e9165d36af5c',
-                    url: 'https://github.com/DanMartyns/SoftwareEngineering.git'
-                )
-            }
-        }
+    stage('Cloning repository') {
+        git credentialsId: 'c1b055da-53b9-4c9d-8d7b-e9165d36af5c',
+            branch: 'master',
+            url: 'https://github.com/DanMartyns/SoftwareEngineering.git'
+        )
+    }
 
     stage ('Artifactory configuration') {
         rtMaven.tool = 'MavenLocal' // Tool name from Jenkins configuration
