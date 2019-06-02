@@ -2,7 +2,7 @@
 
 #Here we will have the essential directories for the entire project 
 MODULES=(
-    MainProject/dockerdemo
+    P2G1/MainProject/dockerdemo
 )
 
 for i in ${!MODULES[@]}; do
