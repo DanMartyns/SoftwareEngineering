@@ -60,7 +60,8 @@ public class dataSensor {
         long timestamp = System.currentTimeMillis();
         double value = Double.parseDouble(cr.value().toString().split(":")[1].replace("}", ""));
         sensor_name = (String) cr.key();
-        
+        logger.info(String.format("Sensor_name : %s",sensor_name));
+        logger.info(String.format("Value : %s", value));
         Date d = new Date(timestamp);
         DateFormat df = new SimpleDateFormat("dd:MM:yy:HH:mm:ss");
         if (timestamp-last_timestamp > 10000){

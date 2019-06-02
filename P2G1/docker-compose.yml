@@ -15,11 +15,10 @@ services :
                         - /var/run/docker.sock:/var/run/docker.sock
                         - /opt/portainer/data:/data
         mysql :
-                container_name : MySQL 
+                container_name : MySQL
                 build:
                     context: ./SQL
-                    dockerfile: DockerFile                
-                restart : always
+                    dockerfile: DockerFile     
                 environment :
                         MYSQL_ROOT_PASSWORD: es
                         MYSQL_DATABASE : database

@@ -1,0 +1,30 @@
+node {
+    def server = Artifactory.server 'ReposityVM'
+    def rtMaven = Artifactory.newMavenBuild()
+    def buildInfo
+
+        stage('Cloning repository') {
+            steps {
+                git(
+                    branch: 'master',
+                    credentialsId: 'c1b055da-53b9-4c9d-8d7b-e9165d36af5c',
+                    url: 'https://github.com/DanMartyns/SoftwareEngineering.git'
+                )
+            }
+        }
+
+    stage ('Artifactory configuration') {
+        rtMaven.tool = 'MavenLocal' // Tool name from Jenkins configuration
+        rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'p2g1', server: server
+        rtMaven.resolver releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: server
+        buildInfo = Artifactory.newBuildInfo()
+    }
+
+    stage ('Exec Maven') {
+        rtMaven.run pom: 'P2G1/MainProject/dockerdemo/pom.xml', goals: 'clean install', buildInfo: buildInfo
+    }
+
+    stage ('Publish build info') {
+        server.publishBuildInfo buildInfo
+    }
+}

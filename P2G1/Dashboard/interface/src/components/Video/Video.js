@@ -6,7 +6,7 @@ class Video extends Component {
     render() {
     return (
         <div className="video">
-            <ReactPlayer height="500px" width="800px" url='https://www.youtube.com/watch?v=qH1hoAD6m78' playing />
+            <ReactPlayer height="500px" width="800px" url='https://www.youtube.com/watch?v=RkNf-QTUzGY' playing />
         </div>
     );
     };
