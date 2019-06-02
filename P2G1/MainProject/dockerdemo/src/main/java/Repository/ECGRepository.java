@@ -22,4 +22,7 @@ public interface ECGRepository extends JpaRepository<ECG,Long>{
      */
     @Query("SELECT e FROM ECG e ORDER BY e.id DESC")
     public List<ECG> lastValue();
+    
+    @Query("SELECT e FROM ECG e")
+    public List<ECG> allValues();
 }

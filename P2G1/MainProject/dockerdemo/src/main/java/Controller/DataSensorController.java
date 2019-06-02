@@ -10,21 +10,20 @@ import Model.LoggerMessage;
 import Service.ECGServiceImpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-
-import org.json.JSONObject;
-
 import Service.ProducerLOG;
 import Service.TopicServiceKafkaImpl;
+import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import org.json.JSONObject;
 import org.springframework.kafka.annotation.EnableKafka;
 /**
  *
@@ -36,6 +35,8 @@ public class DataSensorController {
     
     private static final Logger logger = LoggerFactory.getLogger(DataSensorController.class);
     
+    private static final String TOPIC = "bpmi-topic";
+    
     @Autowired
     private ProducerLOG<String,LoggerMessage> producerLOG;
     
@@ -45,49 +46,46 @@ public class DataSensorController {
     @Autowired
     ECGServiceImpl ecgService;
         
-    @KafkaListener(topics = "bpmi-topic")
     @GetMapping("/")  
-    public String read(ConsumerRecord<?, ?> cr) throws Exception {
+    public String home() {
         return "Welcome to ES Project";
     }
     
-    /**
-     * Listen for messages on the kafka broker and saves it into the messageRepository.
-     * @param cr Consumer record fetched from the message bus
-     */
-    @KafkaListener(topics = "bpmi-topic")
+    @GetMapping("/data")
     @CrossOrigin(origins = "http://172.16.238.40:42002/")
-    public JSONObject dataReceiver(ConsumerRecord<?,?> cr) throws ParseException{
+    public String dataReceiver() throws ParseException, IOException{
         
-        String key = "";
         double value = 0;
+        List<ECG> e = null;
         Set<String> topicos = topic.getTopics();
         if (!topicos.contains("bpmi-topic")){
             producerLOG.sendMessage(new LoggerMessage("ERROR","Kafka doesn't have the bpmi-topic"));
             logger.info("Kafka doesn't have the bpmi-topic");
         }
         
-        if (topicos.isEmpty() && topicos.contains("bpmi-topic") ){
-            ECG e = ecgService.lastRegistry().get(0);
-            key = e.getSensor();
-            value = e.getMaxValue();
+        if (!topicos.isEmpty() && topicos.contains("bpmi-topic") ){
+            e = ecgService.allValues();
             producerLOG.sendMessage(new LoggerMessage("INFO","The information comes from the Database"));
-            logger.info("The information comes from the Database");
         } else {
-            key = (String) cr.key();
-            value = Double.parseDouble(cr.value().toString().split(":")[1].replace("}", ""));
-            producerLOG.sendMessage(new LoggerMessage("INFO","The information comes from the kafka"));
-            logger.info("The information comes from the kafka");
+            producerLOG.sendMessage(new LoggerMessage("ERROR","Cannot acess to database"));
         }
         
-        JSONObject json = new JSONObject();
-        json.put("sensor_name", key);
-        json.put("current_value_bpm", value);
+        JSONObject obj = new JSONObject();
+        ArrayList array = new ArrayList();
         
-        producerLOG.sendMessage(new LoggerMessage("INFO","Send information to DashBoard"));
-        logger.info("Send information to DashBoard");
+        for(ECG ecg : e){
+            array.add(ecg.getMaxValue());
+        }
+        logger.info(String.format("Sensor: %s",e.get(0).getSensor()));
+        logger.info(array.toString());
+        obj.put("sensor_name", e.get(0).getSensor());
+        obj.put("values", array);
+        obj.put("current_value",array.get(array.size() -1));
         
-        return json;        
+        producerLOG.sendMessage(new LoggerMessage("INFO","Send information to Dashboard"));
+        logger.info("Send information to Dashboard");
+        
+        return obj.toString();        
     }   
     
 }

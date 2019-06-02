@@ -20,4 +20,6 @@ public interface ECGService {
     double mean(JSONObject values);
     
     List<ECG> lastRegistry();
+    
+    List<ECG> allValues();
 }

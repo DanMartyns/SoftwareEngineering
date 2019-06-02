@@ -1,37 +1,50 @@
 import React, {Component} from 'react';
-import DisplayResultID from '../DisplayResultID/';
 import DisplayResultSN from '../DisplayResultSN/';
-import DisplayResultDT from '../DisplayResultDT/';
 import DisplayResultHR from '../DisplayResultHR/';
 import Video from '../Video/';
-import './Body.css'
+import './Body.css';
+
+
 class Body extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       items: [],
-      isLoaded: false,
+      isLoaded: false
     }
   }
 
   componentDidMount() {
-    fetch('http://172.16.238.20:42020/')
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-          isLoaded: true,
-          items: json,
-        })
+    this.getValues();
+    this.interval = setInterval(() => {
+      this.getValues();
+    }, 1000);
+        
+  }
+  
+  getValues() {
+    fetch('http://172.16.238.30:8080/data', {headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "content-type, Authorization", "Access-Control-Allow-Methods": "GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS,TRACE"}})
+    .then(res => res.json())
+    .then(json => {
+      this.setState({
+        isLoaded: true,
+        items: json,
       })
-      .catch(function(error) {
-        console.log('Looks like there was a problem: \n', error);
-      });
-  }  
+    })
+    .catch(function(error) {
+      console.log('Looks like there was a problem: \n', error);
+    });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+  
   render() {
     var { isLoaded, items } = this.state;
-    console.log(isLoaded);
-    console.log(items);
+    console.log("IsLoaded :",isLoaded);
+    console.log("Items : ",items);
     if(!isLoaded) {
       return <div><h1>Loading...</h1></div>
     }
@@ -48,12 +61,9 @@ class Body extends Component {
           <div className="split right">
             <div className="centered">
               <div className="linha">
-                <DisplayResultSN title="Sensor's Name" result = {items.sensor_name} />  
-              </div>
-              <div className="linha">
-                <DisplayResultHR title="Heart Rate" result ="110"/>
-                <DisplayResultDT title="ECG Data Type" result ={items.current_value_bpm}/>
-              </div> 
+                <DisplayResultSN title="Sensor's Name" result = {items.sensor_name}/>  
+                <DisplayResultHR title="Current Heartrate" result ={items.current_value}/>
+              </div>                
             </div>
           </div>
         </body>

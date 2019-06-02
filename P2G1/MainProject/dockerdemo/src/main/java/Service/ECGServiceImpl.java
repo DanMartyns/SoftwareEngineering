@@ -46,4 +46,9 @@ public class ECGServiceImpl implements ECGService{
     public List<ECG> lastRegistry(){
         return ecgRepository.lastValue();
     }
+    
+    @Override
+    public List<ECG> allValues(){
+        return ecgRepository.allValues();
+    }
 }
