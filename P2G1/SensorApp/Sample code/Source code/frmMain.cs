@@ -632,7 +632,7 @@ namespace TestBioLib
             {
                 try
                 {
-                    var dr = await p.ProduceAsync("bpmi-topic", new Message<string, string> { Key = deviceId, Value = qrs.bpmi.ToString() });
+                    var dr = await p.ProduceAsync("bpmi-topic", new Message<string, string> { Key = deviceId, Value = "{\"value\": " + qrs.bpmi.ToString() + "}" });
                     Console.WriteLine($"Delivered '{dr.Value}' to '{dr.TopicPartitionOffset}' ' from ' {dr.Key}");
                 }
                 catch (ProduceException<string, string> e)
