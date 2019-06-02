@@ -76,8 +76,6 @@ public class DataSensorController {
         for(ECG ecg : e){
             array.add(ecg.getMaxValue());
         }
-        logger.info(String.format("Sensor: %s",e.get(0).getSensor()));
-        logger.info(array.toString());
         obj.put("sensor_name", e.get(0).getSensor());
         obj.put("values", array);
         obj.put("current_value",array.get(array.size() -1));
