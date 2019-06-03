@@ -1,0 +1,95 @@
+version : '3'
+
+services :
+        mysql :
+                container_name : MySQL
+                build:
+                    context: ./SQL
+                    dockerfile: DockerFile     
+                environment :
+                        MYSQL_ROOT_PASSWORD: es
+                        MYSQL_DATABASE : database
+                        MYSQL_USER: User
+                        MYSQL_PASSWORD: es
+                networks :
+                        global_network :
+                                ipv4_address: 172.16.238.20
+                ports : 
+                        - "42306:3306"
+        main :
+                container_name : MainProgram   
+                build:
+                    context: ./MainProject/dockerdemo
+                    dockerfile: DockerFile
+                restart : always
+                networks : 
+                        global_network :
+                                ipv4_address: 172.16.238.30
+                ports : 
+                        - "42020:8080"  
+                depends_on :
+                    - mysql
+                    - elasticsearch
+        dashboard :
+                container_name : Dashboard     
+                build:
+                        context: ./Dashboard/interface
+                volumes:
+                        - './Dashboard/interface:/usr/src/app'
+                        - '/usr/src/app/node_modules'
+                networks:
+                        global_network:
+                                ipv4_address: 172.16.238.40
+                ports:
+                        - '42002:3000'
+                depends_on:
+                        - main
+        elasticsearch:
+                container_name : Elastic_Search     
+                build:
+                        context: ElasticSearch/
+                volumes:
+                        - ./ElasticSearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+                ports:
+                        - "42920:9200"
+                        - "42930:9300"
+                networks:
+                        global_network:
+                                ipv4_address: 172.16.238.50
+        kibana:
+                container_name : Kibana
+                build:
+                        context: Kibana/
+                volumes:
+                        - ./Kibana/config/:/usr/share/kibana/config:ro
+                ports:
+                        - "42560:5601"
+                networks:
+                        global_network:
+                                ipv4_address: 172.16.238.60
+                depends_on:
+                        - elasticsearch                                                               
+
+        logstash:
+                container_name : Logstash
+                build:
+                        context: Logstash/
+                volumes:
+                        - ./Logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+                        - ./Logstash/pipeline:/usr/share/logstash/pipeline:ro
+                ports:
+                        - "5000:5000"
+                        - "12201:12201/udp"
+                networks:
+                        global_network:
+                                ipv4_address: 172.16.238.70
+                depends_on: 
+                        - elasticsearch
+                        - main
+networks:
+        global_network:
+                driver : bridge
+                ipam : 
+                        driver : default
+                        config : 
+                                - subnet : 172.16.238.0/24     

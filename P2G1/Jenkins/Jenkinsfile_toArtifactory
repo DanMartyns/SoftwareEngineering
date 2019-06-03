@@ -7,7 +7,6 @@ node {
         git credentialsId: 'c1b055da-53b9-4c9d-8d7b-e9165d36af5c',
             branch: 'master',
             url: 'https://github.com/DanMartyns/SoftwareEngineering.git'
-        )
     }
 
     stage ('Artifactory configuration') {
