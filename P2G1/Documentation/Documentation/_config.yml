@@ -1,12 +1,12 @@
-title: SmartFarm
+title: ECGMonitor
 email: smartfarm@ua.pt
 description: >
-    The tool to help farmers monitor their farms.
+    The tool to monitor the ECG.
 url: "http://xcoa.av.it.pt"
-owner_name: smartfarm
+owner_name: SoftwareEngineering
 owner_url: https://gitlab.com/deti-smartfarm
-repository_name: deti.smartfarm.gitlab.io
-repository_url: https://gitlab.com/deti-smartfarm/deti-smartfarm.gitlab.io
+repository_name: SoftwareEngineering
+repository_url: https://github.com/DanMartyns/SoftwareEngineering
 twitter_username: smartfarm
 github_username:  smartfarm
 
@@ -20,7 +20,7 @@ show_dir_listing: false
 
 show_full_navigation: true
 
-gems:
+plugins:
   - jekyll-sitemap
 
 # Build settings
