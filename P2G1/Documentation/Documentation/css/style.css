@@ -906,7 +906,7 @@
 
 	#banner {
 		background-attachment: scroll, scroll, scroll, fixed;
-		background-color: #645862;
+		background-color: #64ff88;
 		background-image: url("images/light-bl.svg"), url("images/light-br.svg"), url("images/dark-br.svg"), url("../images/background.jpg");
 		background-position: bottom left, bottom right, top left, top center;
 		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
