@@ -55,22 +55,22 @@ public class dataSensor {
 //    }
     
     
-    @KafkaListener(topics = "bpmi-topic")
-    public void registerHeartBeat(ConsumerRecord<?,?> cr) throws ParseException {
-        long timestamp = System.currentTimeMillis();
-        double value = Double.parseDouble(cr.value().toString().split(":")[1].replace("}", ""));
-        sensor_name = (String) cr.key();
-        logger.info(String.format("Sensor_name : %s",sensor_name));
-        logger.info(String.format("Value : %s", value));
-        Date d = new Date(timestamp);
-        DateFormat df = new SimpleDateFormat("dd:MM:yy:HH:mm:ss");
-        if (timestamp-last_timestamp > 10000){
-            ecgService.save(new ECG( sensor_name, "heartbeat",value,new Timestamp(last_timestamp),new Timestamp(timestamp)));
-            last_timestamp = timestamp;
-            producerLog.sendMessage(new LoggerMessage("INFO",String.format("Updating the Database with value: %s",value)));
-            logger.info(String.format("Updating the Database with value: %s",value));
-        }
-    }
+//    @KafkaListener(topics = "bpmi-topic")
+//    public void registerHeartBeat(ConsumerRecord<?,?> cr) throws ParseException {
+//        long timestamp = System.currentTimeMillis();
+//        double value = Double.parseDouble(cr.value().toString().split(":")[1].replace("}", ""));
+//        sensor_name = (String) cr.key();
+//        logger.info(String.format("Sensor_name : %s",sensor_name));
+//        logger.info(String.format("Value : %s", value));
+//        Date d = new Date(timestamp);
+//        DateFormat df = new SimpleDateFormat("dd:MM:yy:HH:mm:ss");
+//        if (timestamp-last_timestamp > 10000){
+//            ecgService.save(new ECG( sensor_name, "heartbeat",value,new Timestamp(last_timestamp),new Timestamp(timestamp)));
+//            last_timestamp = timestamp;
+//            producerLog.sendMessage(new LoggerMessage("INFO",String.format("Updating the Database with value: %s",value)));
+//            logger.info(String.format("Updating the Database with value: %s",value));
+//        }
+//    }
     
     
 }

@@ -59,14 +59,14 @@ public class ESApplication {
             }
         };
     }
-/*   @Scheduled(fixedDelay = 1000, initialDelay = 1000)
-//    public void dataTestFile() throws InterruptedException{
-//        try (FileReader reader = new FileReader("Data/ecg.txt");
-//             BufferedReader br = new BufferedReader(reader)) {
-//            while(true){
-//                String line;
-//                while ((line = br.readLine()) != null) {
-//                    String[] array = line.split(" ");
+   @Scheduled(fixedDelay = 1000, initialDelay = 1000)
+    public void dataTestFile() throws InterruptedException{
+        try (FileReader reader = new FileReader("Data/ecg.txt");
+             BufferedReader br = new BufferedReader(reader)) {
+            while(true){
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] array = line.split(" ");
                     for(int i= 0; i < array.length; i++){
                         Stream obj = new Stream(Double.parseDouble(array[i]));
                         producer.sendMessage("1LN1200065", obj);
@@ -83,6 +83,6 @@ public class ESApplication {
             producerLog.sendMessage(new LoggerMessage("ERROR",String.format("IOException: %s%n", e)));
             logger.error(String.format("IOException: %s%n", e));
         }        
-    }        */
+    }        
         
 }
