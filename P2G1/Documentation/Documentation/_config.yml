@@ -1,14 +1,14 @@
 title: ECGMonitor
-email: smartfarm@ua.pt
+email: heartrate@ua.pt
 description: >
     The tool to monitor the ECG.
 url: "http://xcoa.av.it.pt"
 owner_name: SoftwareEngineering
-owner_url: https://gitlab.com/deti-smartfarm
+owner_url: https://gitlab.com/deti-heartrate
 repository_name: SoftwareEngineering
 repository_url: https://github.com/DanMartyns/SoftwareEngineering
-twitter_username: smartfarm
-github_username:  smartfarm
+twitter_username: heartrate
+github_username:  heartrate
 
 # Serving
 detach:  false
