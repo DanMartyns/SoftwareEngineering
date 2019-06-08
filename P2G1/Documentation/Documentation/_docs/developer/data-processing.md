@@ -1,23 +1,20 @@
 ---
 layout: documentation-default
 category: Developer
-order: 5
+order: 3
 ---
 
-## SmartFarm Data Processing
+## Heartrate Monitor Data Processing
 
-This module stores the alerts defined by the users, as well as the actuators
-associated with the alerts. Everytime a sensor sends a new value to the platform,
-some processing is made by this module, using *Kafka Streams*:
+This module stores the information comming from the broker. 
+Everytime a sensor sends a new value to the platform,
+some processing is made by this module, using *Streams*:
 
-1. The new average value from the sensor is calculated and is sent to a
-separated topic, to be stored by another module;
-2. If any alert is triggered with the new value, the alert ID, the value sent
-by the sensor and the timestamp are sent to a Kafka topic;
-3. If any actuator is associated with the triggered alert, it is sent the
-defined value for the sensors associated with the actuator.
-4. If the sensor sends a new status, different from the previous one, stored
-in a KTable, the new status is sent to a Kafka topic, to be updated by
-the other modules.
+1. The sensor sends values every one second, for every five seconds is calculated
+the average and send to a relational database, to be stored;
+2. The idea is to create a delay, so that it can be received and processed by the dashboard;
 
-This module also provides an HTTP API to allow the user to add alerts and actuators.
+#### Problems and features not implemented in Data Processing
+
+1. The main objective was to classify the heartbeats, assuming that horror videos would create more frequent beats, facilitating classification.
+2. The data processing will detect an high heart beat value, from the values sent by sensor, classify depending on how much higher is the value and send to a new topic.

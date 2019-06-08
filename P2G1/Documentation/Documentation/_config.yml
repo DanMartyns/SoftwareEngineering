@@ -1,10 +1,10 @@
 title: ECGMonitor
-email: heartrate@ua.pt
+email: danielmcoelho@ua.pt
 description: >
     The tool to monitor the ECG.
 url: "http://xcoa.av.it.pt"
 owner_name: SoftwareEngineering
-owner_url: https://gitlab.com/deti-heartrate
+owner_url: https://github.com/DanMartyns/SoftwareEngineering
 repository_name: SoftwareEngineering
 repository_url: https://github.com/DanMartyns/SoftwareEngineering
 twitter_username: heartrate
@@ -15,7 +15,6 @@ detach:  false
 port:    4000
 host:    127.0.0.1
 baseurl: ""
-#baseurl: "/~es2017-2018_g202"
 show_dir_listing: false
 
 show_full_navigation: true
