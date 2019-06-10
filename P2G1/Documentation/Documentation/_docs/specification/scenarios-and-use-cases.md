@@ -6,20 +6,8 @@ order: 3
 
 ## Scenarios
 
-This section describes three important scenarios where the platform can be be useful to answer the user needs.
-
-**Farm daily monitoring**
-
-Bob is a farmer who has multiple lands, on which he built farms, and who doesn’t have the time neither the human resources to take care of all of them. He needs to monitor the temperature and humidity of all his plants, so that they can grow in good conditions. He uses SmartFarm to monitor all his farms and the environmental conditions they’re exposed to, watching real-time and past values from the sensors distributed in the farm.
-
-**Farm notification awareness**
-
-Bob needs to monitor the extreme temperatures in his farms, since these extreme conditions can ruin all his plantation. He uses Smartfarm to define alerts in charge of notifying him whenever an extreme weather condition occurs.
-
-**Farm automated actuation**
-
-Bob installed a physical infrastructure on his farm that acts similar to a greenhouse and that is fully automated. This infrastructure can avoid that the plants suffer from extreme weather conditions. The greenhouse can also irrigate the plants whenever needed. To monitor the watering of the plants, Bob uses SmartFarm to set actions so that, when extreme temperatures arise, the plantation will automatically be watered.
-
+Dylan heard about our application from a collegue and wanted to give it a try. Knowing beforehand that he never liked spiders,
+he wanted to know how his heart rate reacts to a video of spiders, in order to know if what he felt for them was fear.
 
 
 ## Use Cases
