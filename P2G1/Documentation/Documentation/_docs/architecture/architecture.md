@@ -20,4 +20,6 @@ This part of our architecture is responsible for gathering, processing and trans
 
 #### Dashboard
 
+This is the part of the architecture that the user interacts with. The user is presented to a video or game, which he will react to. The reaction, measured in beats per minute, is presented live.
+
 #### Deployment (Jenkins and Docker)
