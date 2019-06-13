@@ -14,7 +14,7 @@ detach:  false
 port:    4000
 host:    127.0.0.1
 #baseurl: ""
-baseurl: "/~SoftwareEngineering/docs"
+baseurl: "https://danmartyns.github.io/SoftwareEngineering/docs"
 show_dir_listing: false
 
 show_full_navigation: true
