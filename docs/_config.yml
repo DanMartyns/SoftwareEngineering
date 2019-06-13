@@ -6,8 +6,7 @@ owner_name: HeartRate Monitor
 owner_url: https://danmartyns.github.io/SoftwareEngineering/
 repository_name: SoftwareEngineering
 repository_url: https://danmartyns.github.io/SoftwareEngineering
-twitter_username: smartfarm
-github_username:  smartfarm
+github_username:  danmartyns
 
 # Serving
 detach:  false
