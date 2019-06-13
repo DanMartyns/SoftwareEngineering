@@ -12,7 +12,6 @@ github_username:  danmartyns
 detach:  false
 port:    4000
 host:    127.0.0.1
-#baseurl: ""
 baseurl: "/SoftwareEngineering"
 show_dir_listing: false
 
