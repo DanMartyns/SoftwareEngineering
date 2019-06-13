@@ -269,39 +269,27 @@
                             <article class="content">
                                 <h2 id="features">Features</h2>
 
-<p><strong>SmartFarm</strong> platform includes the following features:</p>
+<p><strong>Heartrate Monitor</strong> platform includes the following features:</p>
 
 <ul>
-  <li>Providing <strong>real-time values</strong> for each sensor;</li>
-  <li>Through the values obtained from the sensors, allow the user to know the the <strong>sensors’ location and display it in a map</strong>;</li>
-  <li>Present to the user the environmental metrics from its farms on <strong>charts</strong>;</li>
+  <li>Providing <strong>real-time values</strong> for the sensor;</li>
+  <li>Through the values obtained from the sensors, allow the user to know his heartbeat;</li>
+  <li>Present to the user the metrics from its heart on <strong>charts</strong>;</li>
   <li>Allow the user to see the <strong>average measurements</strong> from the data received;</li>
-  <li>Allow the user to <strong>define thresholds and associate alerts</strong> when the obtained values from the sensors exceed them;</li>
-  <li>Allow the user to send values to <strong>actuators</strong>;</li>
-  <li>Allow the user to program the platform to <strong>automatically send values to actuators when alerts are triggered</strong>;</li>
-  <li>Allow the user to know the <strong>current state</strong> of the sensor (OK, broken, …)</li>
   <li><strong>Easily</strong> add new sensors;</li>
-  <li>CRUD operations on <strong>farms, sensors and streams</strong>;</li>
+  <li>JPA operations on <strong>sensors and streams</strong>;</li>
   <li>Interactive and responsive <strong>UI</strong>.</li>
 </ul>
 
 <h2 id="requirements">Requirements</h2>
 
-<p>The following requirements are needed form the <strong>SmartFarm</strong> system:</p>
+<p>The following requirements are needed form the <strong>Heartrate Monitor</strong> system:</p>
 
 <ul>
-  <li>The platform needs at least one server with public access to the internet;</li>
-  <li>The platform will need, at last, 8GB of RAM memory and 4GB of disk memory (across all servers used);</li>
-  <li>The area where the system will be implemented needs to have at least one
-type of sensors (temperature, humidity, pressure, CO2, …) available,
-with internet access;</li>
-  <li>The Web Portal, as well as the REST API, should require user authentication;</li>
-  <li>Sensors may have a static or dynamic location;</li>
-  <li>Sensors may change his state (OK, broken, …) with a message;</li>
-  <li>When an alarm is triggered, if an actuator is associated to that event,
-the IoT platform should trigger it in less than one minute;</li>
+  <li>The platform needs public access to the internet;</li>
+  <li>The platform will need, the Operating System Windows;</li>
+  <li>The area where the system will be implemented needs to have the heartbeat sensor available, with internet access;</li>
   <li>When a sensor sends a value, the average value from the sensor must be calculated within one minute;</li>
-  <li>A user can only monitor his farms.</li>
 </ul>
 
 

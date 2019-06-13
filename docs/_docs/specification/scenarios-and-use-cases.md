@@ -12,26 +12,18 @@ he wanted to know how his heart rate reacts to a video of spiders, in order to k
 
 ## Use Cases
 
-The following section describes the most important use cases targeted in the system. **All use cases described were tested** and are part of the build pipeline. According to its scope, the use cases are divided in three subsections: Sensor persistence, sensor state and alarms & actuators.
+The following section describes the most important use cases targeted in the system. **All use cases described were tested** and are part of the build pipeline. According to its scope, the use cases are divided in three subsections: Sensor persistence, Main state .
 
 **Sensor Persistence**
 
-| Use case              | Read Sensor Last Values       |
+| Use case              | Read Sensor Values       |
 | --------------------- | ---------------------------------------------------- |
-| Description           | Read last value sent from sensor |
-| Given            | the sensor id 5672 |
-| When              | the sensor 5672 sends the value 15.2 to the platform |
+| Description           | Read value sent from sensor |
+| Given            | the sensor id IL0111111 |
+| When              | the sensor IL0111111 sends the value 15.2 to the platform |
 | Then     | the value 15.2 is available on the platform |
 {: .docs-table .use-cases-table}
 
-
-| Use case              | Read Sensor Historic Values              |
-| --------------------- | ---------------------------------------------------- |
-| Description           | Read historic values from sensor |
-| Given            | the sensor id 9373 |
-| When              | the sensor 9373 sends the values -1, 15 and 0 to the platform |
-| Then     | the values -1, 15 and 0 is available on the platform |
-{: .docs-table .use-cases-table}
 
 
 **Sensor State**
