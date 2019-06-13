@@ -2,22 +2,24 @@ title: ECGMonitor
 email: danielmcoelho@ua.pt
 description: >
     The tool to monitor the ECG.
-owner_name: SoftwareEngineering
+owner_name: HeartRate Monitor
 owner_url: https://danmartyns.github.io/SoftwareEngineering/
 repository_name: SoftwareEngineering
-repository_url: https://github.com/DanMartyns/SoftwareEngineering
-github_username:  danmartyns
+repository_url: https://danmartyns.github.io/SoftwareEngineering
+twitter_username: smartfarm
+github_username:  smartfarm
 
 # Serving
 detach:  false
 port:    4000
 host:    127.0.0.1
-#baseurl: ""
+baseurl: ""
+#baseurl: "/~es2017-2018_g202"
 show_dir_listing: false
-baseurl: /~SoftwareEngineering
+
 show_full_navigation: true
 
-plugins:
+gems:
   - jekyll-sitemap
 
 # Build settings
@@ -74,4 +76,3 @@ defaults:
       _comments:
         category: Group navigation links with this field
         order: Used to sort links in the navigation
-
