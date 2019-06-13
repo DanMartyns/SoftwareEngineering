@@ -276,16 +276,39 @@
 <p>This part of our architecture is responsible for gathering, processing and transporting the data from its origin in the sensor to our main program.</p>
 
 <h4 id="main-program">Main Program</h4>
+<p>The <strong>MainProgram</strong> component is one of the central pieces of the platform; 
+this module inspects all the data retrieved by the sensor spread, processes it (calculates averages) and streams it to <strong>Dashboard</strong> listening.
+The <strong>Main Program</strong> module, provides
+JPA operations over sensors. It is also coupled with the <strong>Relational Data Base</strong>
+module, since all operations are done on the relational database</p>
 
-<h4 id="logstash-elasticsearch-and-kibana">Logstash, ElasticSearch and Kibana</h4>
+<h4 id="elk-stack">ELK Stack</h4>
+
+<p>The <em>Elastic Search</em>, <em>Logstash</em> and <em>Kibana</em> are also present in the platform
+to monitor and centralize all the logs the platform may report.</p>
+
+<p>It is also shows the heartbeat metrics, because wasn’t possible to show on the Dashboard.</p>
 
 <h4 id="relational-data-base">Relational Data Base</h4>
 
+<p>The <strong>Relational database</strong> is a <em>MySQl</em> database that is used to store the average values 
+​​from the sensor each minute, in case, if the kafka fails. 
+Works like a safe-guard, to the plataform do not stop working.</p>
+
+<p>It is used to provide data persistence.</p>
+
 <h4 id="dashboard">Dashboard</h4>
 
-<p>This is the part of the architecture that the user interacts with. The user is presented to a video or game, which he will react to. The reaction, measured in beats per minute, is presented live.</p>
+<p>This is the part of the architecture that the user interacts with. The user is presented to a video or game, which he will react to. The reaction, measured in beats per minute, is presented live. This module is currently build using <em>ReactJS</em>.</p>
 
-<h4 id="deployment-jenkins-and-docker">Deployment (Jenkins and Docker)</h4>
+<h4 id="docker">Docker</h4>
+<p>Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package.
+The goal was use Docker to separate the technologies and simulate a distributed system with the technologies working independently.
+For example, the relational database, works like a micro service accessed by main program.</p>
+
+<h3 id="jenkins">Jenkins</h3>
+<p>Jenkins is an open source automation tool written in Java with plugins built for Continuous Integration purpose. Jenkins is used to build and test your software projects continuously making it easier for developers to integrate changes to the project, and making it easier for users to obtain a fresh build.
+After building each component, the jenkins is responsable to test and running each. Jenkins offer an access transparency and a position transparency, because doesn’t matter if the repository is local or remote and doesn’t matter the fisically location of the machines, the jenkins is capable of sending orders to each machine and run the components.</p>
 
                             </article>
 
