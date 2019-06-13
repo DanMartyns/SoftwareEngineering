@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+  <!--
+	Twenty by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<head>
+    <title>ECGMonitor - Deployment Architecture</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="The tool to monitor the ECG.
+">
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollgress.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/skel-layers.min.js"></script>
+    <script src="/js/init.js"></script>
+    <script src="/js/responsiveslides.min.js"></script>
+    <!--<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>-->
+
+
+    <noscript>
+        <link rel="stylesheet" href="/css/skel.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/style-wide.css" />
+        <link rel="stylesheet" href="/css/style-noscript.css" />
+        <link rel="stylesheet" href="/css/base.css" />
+    </noscript>
+
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie/v9.css" /><![endif]-->
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="canonical" href="http://localhost:4000/architecture/deployment-architecture/">
+    <link rel="shortcut icon" type="image/ico" href="/images/logo.ico">
+</head>
+
+
+  <body class="left-sidebar">
+
+    <header id="header">
+
+				<h1 id="logo"><img style="margin-top:-10px; display: inline-block;" src="/images/logo-small.png" /></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+                        
+                        
+                            
+                            <li class="submenu">
+                                <a href="/architecture/architecture/">Architecture</a>
+                                <ul>
+                                
+                                    <li><a href="/architecture/architecture/">Architecture</a></li>
+                                
+                                    <li><a href="/architecture/deployment-architecture/">Deployment Architecture</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/developer/developer-area/">Developer</a>
+                                <ul>
+                                
+                                    <li><a href="/developer/developer-area/">Developer Area</a></li>
+                                
+                                    <li><a href="/developer/web-portal/">Web Portal</a></li>
+                                
+                                    <li><a href="/developer/data-processing/">Data Processing</a></li>
+                                
+                                    <li><a href="/developer/data-persistence/">Data Persistence</a></li>
+                                
+                                    <li><a href="/developer/platform-monitoring/">Platform Monitoring</a></li>
+                                
+                                    <li><a href="/developer/system-deployment/">System Deployment</a></li>
+                                
+                                    <li><a href="/developer/artifactory/">Artifactory</a></li>
+                                
+                                
+                                    <li><a href="https://github.com/DanMartyns/SoftwareEngineering" target="_blank">Code Repository</a></li>
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/manual/user-manual/">Manual</a>
+                                <ul>
+                                
+                                    <li><a href="/manual/user-manual/">User Manual</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/specification/context-and-scope/">Specification</a>
+                                <ul>
+                                
+                                    <li><a href="/specification/context-and-scope/">Context And Scope</a></li>
+                                
+                                    <li><a href="/specification/requirements-and-features/">Requirements And Features</a></li>
+                                
+                                    <li><a href="/specification/scenarios-and-use-cases/">Scenarios And Use Cases</a></li>
+                                
+                                    <li><a href="/specification/data-model/">Data Model</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/team/the-team/">Team</a>
+                                <ul>
+                                
+                                    <li><a href="/team/the-team/">The Team</a></li>
+                                
+                                    <li><a href="/team/milestones/">Milestones</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                        <!--<li><a href="/contact.html">About us</a></li>-->
+						<!--<li><a href="#" class="button special">Sign Up</a></li>-->
+					</ul>
+				</nav>
+			</header>
+
+
+    <section id="main" class="doc">
+
+                <header class="special container">
+                    <span class="icon fa-laptop"></span>
+                    <h3>Architecture</h3>
+                    <h2><strong>Deployment Architecture</strong></h2>
+                </header>
+
+                <!-- One -->
+                <section class="wrapper style4 container">
+
+                    <div class="row oneandhalf">
+                        <div class="4u">
+
+                            <!-- Sidebar -->
+                                <div class="sidebar">
+                                    <section>
+                                        <nav class="full-navigation">
+                                            <ul>
+                                                
+                                                
+                                                <li class="docs-nav-item top-level current">
+                                                    
+                                                    <a href="/architecture/architecture/">Architecture</a>
+                                                    <ul>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/architecture/architecture/">Architecture</a></li>
+                                                        
+                                                        <li class="docs-nav-item current"><a href="/architecture/deployment-architecture/">Deployment Architecture</a></li>
+                                                        
+                                                        
+                                                        
+                                                    </ul>
+                                                </li>
+                                                
+                                                <li class="docs-nav-item top-level ">
+                                                    
+                                                    <a href="/developer/developer-area/">Developer</a>
+                                                    <ul>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/developer-area/">Developer Area</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/web-portal/">Web Portal</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/data-processing/">Data Processing</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/data-persistence/">Data Persistence</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/platform-monitoring/">Platform Monitoring</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/system-deployment/">System Deployment</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/artifactory/">Artifactory</a></li>
+                                                        
+                                                        
+                                                            <li class="docs-nav-item">
+                                                                <a href="https://github.com/DanMartyns/SoftwareEngineering" target="_blank">Code Repository</a>
+                                                            </li>
+                                                        
+                                                        
+                                                    </ul>
+                                                </li>
+                                                
+                                                <li class="docs-nav-item top-level ">
+                                                    
+                                                    <a href="/manual/user-manual/">Manual</a>
+                                                    <ul>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/manual/user-manual/">User Manual</a></li>
+                                                        
+                                                        
+                                                        
+                                                    </ul>
+                                                </li>
+                                                
+                                                <li class="docs-nav-item top-level ">
+                                                    
+                                                    <a href="/specification/context-and-scope/">Specification</a>
+                                                    <ul>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/specification/context-and-scope/">Context And Scope</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/specification/requirements-and-features/">Requirements And Features</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/specification/scenarios-and-use-cases/">Scenarios And Use Cases</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/specification/data-model/">Data Model</a></li>
+                                                        
+                                                        
+                                                        
+                                                    </ul>
+                                                </li>
+                                                
+                                                <li class="docs-nav-item top-level ">
+                                                    
+                                                    <a href="/team/the-team/">Team</a>
+                                                    <ul>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/team/the-team/">The Team</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/team/milestones/">Milestones</a></li>
+                                                        
+                                                        
+                                                        
+                                                            <li class="docs-nav-item">
+                                                                <a href="/blog.html">Weekly log</a>
+                                                            </li>
+                                                            <li class="docs-nav-item">
+                                                                <a href="https://docs.google.com/spreadsheets/d/104kt8YnjNS1ZUFQNQ1pesl0or72m1JpABVdut2p8vCI/edit?usp=sharing" target="_blank">Timesheet</a>
+                                                            </li>
+                                                        
+                                                    </ul>
+                                                </li>
+                                                
+                                            </ul>
+
+                                            <ul>
+                                                <li class="nav-item top-level ">
+                                                    
+                                                    <a href="/design/"></a>
+                                                </li>
+                                            </ul>
+
+                                            <ul>
+
+                                            </ul>
+                                        </nav>
+
+                                    </section>
+                                </div>
+
+                        </div>
+                        <div class="8u skel-cell-important">
+                            <!-- Content -->
+                            <article class="content">
+                                <h2 id="deployment-architecture">Deployment Architecture</h2>
+
+<p>The <strong>SmartFarm</strong> platform is currently composed of different interacting modules.
+Each module is in charge of a different function.
+The interaction between the different modules makes the <strong>SmartFarm</strong> a loosely
+coupled, flexible, scalable and reliable platform.</p>
+
+<p>The modules currently deployed are:</p>
+
+<ul>
+  <li>SmartFarm Web Portal</li>
+  <li>Reverse Proxy</li>
+  <li>SmartFarm Service Layer</li>
+  <li>SmartFarm Data Processing</li>
+  <li>SmartFarm Triggered Alerts</li>
+  <li>SmartFarm Persistence</li>
+  <li>Relational Database</li>
+  <li>NoSQL Database</li>
+  <li>Broker</li>
+  <li>ELK Stack</li>
+  <li>TICK Stack</li>
+  <li>Gateways</li>
+</ul>
+
+<p>The continous integration and deployment is provided by <em>Jenkins</em> and all the components are containarized with the <em>Docker</em> platform.</p>
+
+<p><img src="/images/docs/deployment.png" alt="Architecture" /></p>
+
+<h3 id="smartfarm-web-portal">SmartFarm Web Portal</h3>
+
+<p>The <strong>SmartFarm Web Portal</strong> is the be the bridge between the user and the platform.</p>
+
+<p>Since it’s an independent system from the rest of the platform, it will consume
+data from an HTTP API (using both REST and Web Sockets for live data consumption)
+that the core platform provides.</p>
+
+<p>This module is currently build using <em>ReactJS</em>, as represented in the diagram.</p>
+
+<h3 id="reverse-proxy">Reverse Proxy</h3>
+
+<p>The <strong>Reverse Proxy</strong> can be seen as the API to external clients since it
+aggregates all the necessary endpoints so that a web portal/frontend interface
+can correctly integrate the SmartFarm core platform.</p>
+
+<p>This module was designed using <em>Nginx</em>, as represented in the diagram.</p>
+
+<h3 id="smartfarm-service-layer">SmartFarm Service Layer</h3>
+
+<p>The <strong>SmartFarm Service Layer</strong> is the backbone of the platform relative to farms,
+users and sensors management (implementing all of <strong>SmartFarm Farms Management</strong>,
+<strong>SmartFarm User Management</strong> and <strong>SmartFarm Sensors Management</strong> components presented in the
+SmartFarm architecture).</p>
+
+<p>It also implements the and <strong>SmartFarm AA</strong> component, so that only authorized users access
+private endpoints.</p>
+
+<p>Currently, it is deployed using <em>Java</em>, with the <em>Spring Boot framework</em>.
+The tests are done with the <em>Cucumber</em> library.</p>
+
+<h3 id="smartfarm-data-processing">SmartFarm Data Processing</h3>
+
+<p>The <strong>SmartFarm Data Processing</strong> receives the data coming from the sensors and
+processes it in real-time.</p>
+
+<p>This module integrates part of <strong>SmartFarm Alerts &amp; Actuators Management</strong> and
+<strong>SmartFarm Sensor Analytics</strong> architectural components in a single appliance.</p>
+
+<p>Currently, the aggregation is done by gathering the new data coming from the sensors
+from a broker, and after the aggregation is published into the broker again,
+but transformed according to the processing.</p>
+
+<p>It is deployed using <em>Java</em> with the <em>Spring Boot Framework</em> and uses the <em>Kafka Streams</em> library.</p>
+
+<p>The given module also saves all the defined user alerts (similar to a rule, e.g.,
+temperature cannot be higher than 30ºC) and all the values/events that triggered
+those alerts.</p>
+
+<p>Finally, upon the triggering of a given alert, some actions can be taken. This
+module also manages the Actuators associate to the given sensors and provide
+CRUD endpoints for them.</p>
+
+<p>The tests are done with the <em>Cucumber</em> library and the <em>Junit</em> library.</p>
+
+<h3 id="smartfarm-triggered-alerts">SmartFarm Triggered Alerts</h3>
+
+<p>This module registers and saves all the alerts that have been triggered,
+so that the triggered alerts history can be accessed by the users.</p>
+
+<p>This module represents part of the implementation of the <strong>SmartFarm Alerts and Actuators Management</strong>
+component detailed in the SmartFarm architecture.</p>
+
+<p>It is deployed using <em>Java</em> with the <em>Spring Boot Framework</em>.
+The tests are done with the <em>Cucumber</em> library.</p>
+
+<h3 id="smartfarm-persistence">SmartFarm Persistence</h3>
+
+<p>This module stores in a No-SQL database all the data coming from the sensors,
+to later be acessed by the user. It represents part of the implementation of the <strong>SmartFarm Data Persistence</strong>.</p>
+
+<p>It is deployed using <em>Java</em> with the <em>Spring Boot Framework</em>.
+The tests are done with the <em>Cucumber</em> library.</p>
+
+<h3 id="relational-database">Relational Database</h3>
+
+<p>The <strong>Relational database</strong> is a <em>PostgreSQL</em> database that is used to store
+the users, farms, sensors, authentication parameters, alert definition, triggered alerts and actuators.</p>
+
+<p>It is used by most components to provide data persistence.</p>
+
+<h3 id="nosql-database">NoSQL Database</h3>
+
+<p>The <strong>NoSQL Database</strong> is a <em>MongoDB</em> database used to store the data coming from the sensors.
+It is designed to support the different formats of data that the sensors can send.</p>
+
+<h3 id="broker">Broker</h3>
+
+<p>The <strong>Broker</strong> module is a <em>Kafka</em> instance with multiple topics, and is used to
+enable the communication between modules.</p>
+
+<p>When a sensor sends data, posts it into the broker, that redistributes it according
+to the defined listeners. The data processing also sends its processing outputs
+to <em>Kakfa</em> topics that will be retrieved by the interested parties.</p>
+
+<h3 id="elk-stack">ELK Stack</h3>
+
+<p>The <em>Elastic Search</em>, <em>Logstash</em> and <em>Kibana</em> are also present in the platform
+to monitor and centralize all the logs the platform may report.</p>
+
+<p>It is also used <em>MetricBeat</em> to gather the metrics from the virtual machines and the containers
+which are essential to the correct functioning of the platform.</p>
+
+<h3 id="tick-stack">TICK Stack</h3>
+
+<p>The <em>Telegraph</em>, <em>InfluxDB</em>, <em>Chronograph</em> and <em>Kapacitor</em> are deployed so that
+the users/system admins can monitor the state of the machines where the platform
+is deployed, giving all kinds of metrics (CPU usage, RAM Usage, Disk Usage, etc.).</p>
+
+<h3 id="gateways">Gateways</h3>
+
+<p>The <strong>Gateways</strong> gather the data from multiple sensors of one type and
+send them to the platform.</p>
+
+<p>Currently, these gateways emulate the reception of values, and send them to
+the platform. They are deployed using <em>Python 3</em>.</p>
+
+                            </article>
+
+                        </div>
+                    </div>
+                </section>
+
+            </section>
+
+
+
+    <!-- Footer -->
+<footer id="footer">
+
+    <ul class="icons">
+        <li><a style="border-bottom: none;" href="http://www.ua.pt/" class=""><img class="label" src="/images/ua-logo.png"></img></a></li>
+    </ul>
+
+    <ul class="copyright">
+        <li>&copy; HeartRateMonitor 2019</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+
+</footer>
+
+  </body>
+
+</html>

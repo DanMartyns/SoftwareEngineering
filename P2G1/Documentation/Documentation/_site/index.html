@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+  <!--
+	Twenty by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<head>
+    <title>ECGMonitor</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="The tool to monitor the ECG.
+">
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollgress.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/skel-layers.min.js"></script>
+    <script src="/js/init.js"></script>
+    <script src="/js/responsiveslides.min.js"></script>
+    <!--<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>-->
+
+
+    <noscript>
+        <link rel="stylesheet" href="/css/skel.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/style-wide.css" />
+        <link rel="stylesheet" href="/css/style-noscript.css" />
+        <link rel="stylesheet" href="/css/base.css" />
+    </noscript>
+
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie/v9.css" /><![endif]-->
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="shortcut icon" type="image/ico" href="/images/logo.ico">
+</head>
+
+
+  <body class="index">
+
+    <header id="header">
+
+				<h1 id="logo"><img style="margin-top:-10px; display: inline-block;" src="/images/logo-small.png" /></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+                        
+                        
+                            
+                            <li class="submenu">
+                                <a href="/architecture/architecture/">Architecture</a>
+                                <ul>
+                                
+                                    <li><a href="/architecture/architecture/">Architecture</a></li>
+                                
+                                    <li><a href="/architecture/deployment-architecture/">Deployment Architecture</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/developer/developer-area/">Developer</a>
+                                <ul>
+                                
+                                    <li><a href="/developer/developer-area/">Developer Area</a></li>
+                                
+                                    <li><a href="/developer/web-portal/">Web Portal</a></li>
+                                
+                                    <li><a href="/developer/data-processing/">Data Processing</a></li>
+                                
+                                    <li><a href="/developer/data-persistence/">Data Persistence</a></li>
+                                
+                                    <li><a href="/developer/platform-monitoring/">Platform Monitoring</a></li>
+                                
+                                    <li><a href="/developer/system-deployment/">System Deployment</a></li>
+                                
+                                    <li><a href="/developer/artifactory/">Artifactory</a></li>
+                                
+                                
+                                    <li><a href="https://github.com/DanMartyns/SoftwareEngineering" target="_blank">Code Repository</a></li>
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/manual/user-manual/">Manual</a>
+                                <ul>
+                                
+                                    <li><a href="/manual/user-manual/">User Manual</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/specification/context-and-scope/">Specification</a>
+                                <ul>
+                                
+                                    <li><a href="/specification/context-and-scope/">Context And Scope</a></li>
+                                
+                                    <li><a href="/specification/requirements-and-features/">Requirements And Features</a></li>
+                                
+                                    <li><a href="/specification/scenarios-and-use-cases/">Scenarios And Use Cases</a></li>
+                                
+                                    <li><a href="/specification/data-model/">Data Model</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/team/the-team/">Team</a>
+                                <ul>
+                                
+                                    <li><a href="/team/the-team/">The Team</a></li>
+                                
+                                    <li><a href="/team/milestones/">Milestones</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                        <!--<li><a href="/contact.html">About us</a></li>-->
+						<!--<li><a href="#" class="button special">Sign Up</a></li>-->
+					</ul>
+				</nav>
+			</header>
+
+    <!-- Banner -->
+<section id="banner">
+
+    <!--
+        ".inner" is set up as an inline-block so it automatically expands
+        in both directions to fit whatever's inside it. This means it won't
+        automatically wrap lines, so be sure to use line breaks where
+        appropriate (<br />).
+    -->
+    <div class="inner">
+        <img src="/images/logo-medium.png" />
+        <br />
+        <!--<header>
+            <h2>ECGMonitor</h2>
+        </header>-->
+        <p>Heart Rate Monitor</p>
+        <footer>
+            <ul class="buttons vertical">
+                <li><a href="#main" class="button fit scrolly">Tell me more</a></li>
+            </ul>
+        </footer>
+
+    </div>
+
+</section>
+
+    <div class="page-content">
+        		<!-- Main -->
+			<article id="main">
+
+				<header class="special container">
+					<span class="icon fa-bar-chart-o"></span>
+					<h2><strong>HeartRate Monitor</strong> is a tool to monitor the reactions e
+					<br />
+					of a person when watching a video that trigger with extrem.</h2>
+					<p>The platform was developed to have a fun time, obtained through 
+					<br />
+					the use of sensors in specific places in the human body.
+				</header>
+
+				<!-- One -->
+                <section class="wrapper style3 container special">
+
+						<header class="major">
+							<h2>Make it <strong>your own</strong></h2>
+						</header>
+
+						<div class="row">
+                                <div class="6u">
+
+                                        <section>
+                                            <a class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+                                            <header>
+                                                <h3>Let it grow</h3>
+                                            </header>
+                                            <p>
+                                                Expand the system easily
+                                                by integrating new sensors.
+                                            </p>
+                                        </section>
+        
+                                    </div>
+							<div class="6u">
+
+								<section>
+									<a class="image featured"><img src="images/pic04.png" alt="" /></a>
+									<header>
+										<h3>You control it</h3>
+									</header>
+									<p>For a better results,puts the electrodes in the right places</p>
+								</section>
+
+							</div>
+						</div>
+
+					</section>
+
+                <!-- Two -->
+                <section class="wrapper style1 container special">
+                        <div class="row">
+                            <div class="8u more-features-box wow fadeInLeft" style="float: inherit; margin: 0 auto;">
+                                <div>
+                                    <ul class="rslides callbacks callbacks1" id="slider1">
+                                        <li>
+                                            <img src="images/docs/Screenshot_1.png" alt="">
+                                            <p class="caption">Dashboard</p>
+                                        </li>
+                                        <li>
+                                            <img src="images/docs/Screenshot_2.png" alt="">
+                                            <p class="caption">Sensors reporting live and historical data</p>
+                                        </li>
+                                        <li>
+                                            <img src="images/docs/Screenshot_3.png" alt="">
+                                            <p class="caption">ECG Monitor</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="6u">
+
+                                <section>
+                                    <span class="icon featured fa-info"></span>
+                                    <header>
+                                        <h3>Check live or historical sensors metrics</h3>
+                                    </header>
+                                    <p>
+                                        Check the heartbeat conditions and other metrics in real-time on the platform.
+                                        <br />
+                                        All the data you need to know your heartrate.
+                                    </p>
+                                </section>
+
+                            </div>
+                            <div class="6u">
+
+                                <section>
+                                    <span class="icon featured fa-line-chart"></span>
+                                    <header>
+                                        <h3>Sensors metrics analytics</h3>
+                                    </header>
+                                    <p>
+                                        Get more of your sensors data!
+                                        <br />The platform is always processing the data and calculating the average value for all the sensors.
+                                    </p>
+                                </section>
+
+                            </div>
+                        </div>
+
+                    </section>
+
+                <!-- Three -->
+                <section class="wrapper style2 container special-alt">
+                        <div class="row half">
+                            <div class="8u">
+
+                                <header>
+                                    <h2><strong>Unlimited</strong> possibilities with an easily extensible platform.</h2>
+                                </header>
+                                <p class="promotional-banner">Heartrate Monitor platform will revolutionize the farmer’s ability to monitor and actuate on his farm, and reduce labor and maintenance costs.
+                                </p>
+
+                            </div>
+                            <div class="4u skel-cell-important">
+
+                                <ul class="featured-icons">
+                                    <li><span class="icon fa-sun-o"><span class="label">Feature 1</span></span></li>
+                                    <li><span class="icon fa-heart"><span class="label">Feature 2</span></span></li>
+                                    <li><span class="icon fa-line-chart"><span class="label">Feature 3</span></span></li>
+                                    <li><span class="icon fa-laptop"><span class="label">Feature 4</span></span></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </section>
+
+                <!-- Four -->
+                    <section class="wrapper style1 container special">
+                        <header class="major">
+                            <span class="icon fa-coffee" aria-hidden="true"></span>
+                            <h2>Meet the <i>doctors</i> who developed the platform</h2>
+                        </header>
+                        <div class="row">
+                            <div class="3u">
+
+                                <section>
+                                    <img class="team-img" src="images/team/daniel.jpg"></img>
+                                    <header>
+                                        <h3>Daniel Martins</h3>
+                                    </header>
+                                    <p class="team-mail">
+                                        danielmcoelho@ua.pt
+                                        <br />80026
+                                    </p>
+                                </section>
+
+                            </div>
+                            <div class="3u">
+
+                                <section>
+                                    <img class="team-img" src="images/team/andre.jpg"></img>
+                                    <header>
+                                        <h3>André Cunha</h3>
+                                    </header>
+                                    <p class="team-mail">
+                                        oliveir.andre@ua.pt
+                                        <br /> 79969
+                                    </p>
+                                </section>
+
+                            </div>
+                            <div class="3u">
+
+                                <section>
+                                    <img class="team-img" src="images/team/bruno.jpg"></img>
+                                    <header>
+                                        <h3>Bruno Mendes</h3>
+                                    </header>
+                                    <p class="team-mail">
+                                        brunovm@ua.pt
+                                        <br />68411
+                                    </p>
+                                </section>
+
+                            </div>
+                            <div class="3u">
+
+                                <section>
+                                    <img class="team-img" src="images/team/silvia.jpg"></img>
+                                    <header>
+                                        <h3>Sílvia Patricia</h3>
+                                    </header>
+                                    <p class="team-mail">
+                                        silviapatricia@ua.pt
+                                        <br />49938
+                                    </p>
+                                </section>
+
+                            </div>
+                        </div>
+                    </section>
+
+                <!-- Five -->
+                    <section class="wrapper style3 container special">
+
+                        <header class="major">
+                            <span class="icon fa-clock-o" aria-hidden="true"></span>
+                            <h2>The Plan</h2>
+                        </header>
+
+                        <div class="row">
+                            <div class="6u">
+                                <section>
+                                    <header>
+                                        <h1>M4</h1>
+                                        <h3>May 6</h3>
+					<p>
+                                        Sensors' data flowing through broker.					
+					</p>
+                                    </header>
+                                    <p>
+
+                                    </p>
+                                </section>
+
+                            </div>
+                            <div class="6u">
+
+                                <section>
+                                    <header>
+                                        <h1>M5</h1>
+                                        <h3>May 20</h3>
+					<p>
+					Data coming from sensors should be saved on a database.
+                                        <br />UI should correctly display values coming from sensors and the historic data.
+					UI should allow device management,
+                                        <br />an historic view of data should be presented.
+                                        Data processing.
+					</p>
+                                    </header>
+                                    <p>
+
+                                    </p>
+                                </section>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="6u">
+
+                                <section>
+                                    <header>
+                                        <h1>M6 Demo</h1>
+                                        <h3>June 3</h3>
+                                    </header>
+                                    <p>
+                                        Basic users management should be done.
+                                        <br />All features should be implemented.
+                                        <br />Basic acceptance testing and system logging.
+					<br /> Final Presentation.					
+                                    </p>
+                                </section>
+
+                            </div>
+                            <div class="6u">
+
+                                <section>
+                                    <header>
+                                        <h1>M6 Docs</h1>
+                                        <h3>June 13</h3>
+                                    </header>
+                                    <p>
+                                        Final delivery.
+                                    </p>
+                                </section>
+
+                            </div>
+                        </div>
+                    </section>
+
+			</article>
+
+		<!-- CTA -->
+			<section id="cta">
+
+				<header>
+					<h2>Ready to <strong>harvest something great</strong>?</h2>
+				</header>
+				<footer>
+					<ul class="buttons">
+						<li><a href="specification/context-and-scope/" class="button special">Check out the details</a></li>
+						<!--<li><a href="#" class="button">LOL Wut</a></li>-->
+					</ul>
+				</footer>
+
+			</section>
+
+    </div>
+
+    <!-- Footer -->
+<footer id="footer">
+
+    <ul class="icons">
+        <li><a style="border-bottom: none;" href="http://www.ua.pt/" class=""><img class="label" src="/images/ua-logo.png"></img></a></li>
+    </ul>
+
+    <ul class="copyright">
+        <li>&copy; HeartRateMonitor 2019</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+
+</footer>
+
+  </body>
+
+</html>

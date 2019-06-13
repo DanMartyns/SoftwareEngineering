@@ -2,21 +2,19 @@ title: ECGMonitor
 email: danielmcoelho@ua.pt
 description: >
     The tool to monitor the ECG.
-url: "http://xcoa.av.it.pt"
 owner_name: SoftwareEngineering
-owner_url: https://github.com/DanMartyns/SoftwareEngineering
+owner_url: https://danmartyns.github.io/SoftwareEngineering/
 repository_name: SoftwareEngineering
 repository_url: https://github.com/DanMartyns/SoftwareEngineering
-twitter_username: heartrate
-github_username:  heartrate
+github_username:  danmartyns
 
 # Serving
 detach:  false
 port:    4000
 host:    127.0.0.1
-baseurl: ""
+#baseurl: ""
 show_dir_listing: false
-
+baseurl: /~SoftwareEngineering
 show_full_navigation: true
 
 plugins:

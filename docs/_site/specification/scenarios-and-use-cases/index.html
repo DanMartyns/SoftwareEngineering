@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+
+  <!--
+	Twenty by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<head>
+    <title>ECGMonitor - Scenarios And Use Cases</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="The tool to monitor the ECG.
+">
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollgress.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/skel-layers.min.js"></script>
+    <script src="/js/init.js"></script>
+    <script src="/js/responsiveslides.min.js"></script>
+    <!--<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>-->
+
+
+    <noscript>
+        <link rel="stylesheet" href="/css/skel.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/style-wide.css" />
+        <link rel="stylesheet" href="/css/style-noscript.css" />
+        <link rel="stylesheet" href="/css/base.css" />
+    </noscript>
+
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie/v9.css" /><![endif]-->
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="canonical" href="http://localhost:4000/specification/scenarios-and-use-cases/">
+    <link rel="shortcut icon" type="image/ico" href="/images/logo.ico">
+</head>
+
+
+  <body class="left-sidebar">
+
+    <header id="header">
+
+				<h1 id="logo"><img style="margin-top:-10px; display: inline-block;" src="/images/logo-small.png" /></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+                        
+                        
+                            
+                            <li class="submenu">
+                                <a href="/architecture/architecture/">Architecture</a>
+                                <ul>
+                                
+                                    <li><a href="/architecture/architecture/">Architecture</a></li>
+                                
+                                    <li><a href="/architecture/deployment-architecture/">Deployment Architecture</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/developer/developer-area/">Developer</a>
+                                <ul>
+                                
+                                    <li><a href="/developer/developer-area/">Developer Area</a></li>
+                                
+                                    <li><a href="/developer/web-portal/">Web Portal</a></li>
+                                
+                                    <li><a href="/developer/data-processing/">Data Processing</a></li>
+                                
+                                    <li><a href="/developer/data-persistence/">Data Persistence</a></li>
+                                
+                                    <li><a href="/developer/platform-monitoring/">Platform Monitoring</a></li>
+                                
+                                    <li><a href="/developer/system-deployment/">System Deployment</a></li>
+                                
+                                    <li><a href="/developer/artifactory/">Artifactory</a></li>
+                                
+                                
+                                    <li><a href="https://github.com/DanMartyns/SoftwareEngineering" target="_blank">Code Repository</a></li>
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/manual/user-manual/">Manual</a>
+                                <ul>
+                                
+                                    <li><a href="/manual/user-manual/">User Manual</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/specification/context-and-scope/">Specification</a>
+                                <ul>
+                                
+                                    <li><a href="/specification/context-and-scope/">Context And Scope</a></li>
+                                
+                                    <li><a href="/specification/requirements-and-features/">Requirements And Features</a></li>
+                                
+                                    <li><a href="/specification/scenarios-and-use-cases/">Scenarios And Use Cases</a></li>
+                                
+                                    <li><a href="/specification/data-model/">Data Model</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                            
+                            <li class="submenu">
+                                <a href="/team/the-team/">Team</a>
+                                <ul>
+                                
+                                    <li><a href="/team/the-team/">The Team</a></li>
+                                
+                                    <li><a href="/team/milestones/">Milestones</a></li>
+                                
+                                
+                                
+                                </ul>
+                            </li>
+                        
+                        <!--<li><a href="/contact.html">About us</a></li>-->
+						<!--<li><a href="#" class="button special">Sign Up</a></li>-->
+					</ul>
+				</nav>
+			</header>
+
+
+    <section id="main" class="doc">
+
+                <header class="special container">
+                    <span class="icon fa-laptop"></span>
+                    <h3>Specification</h3>
+                    <h2><strong>Scenarios And Use Cases</strong></h2>
+                </header>
+
+                <!-- One -->
+                <section class="wrapper style4 container">
+
+                    <div class="row oneandhalf">
+                        <div class="4u">
+
+                            <!-- Sidebar -->
+                                <div class="sidebar">
+                                    <section>
+                                        <nav class="full-navigation">
+                                            <ul>
+                                                
+                                                
+                                                <li class="docs-nav-item top-level ">
+                                                    
+                                                    <a href="/architecture/architecture/">Architecture</a>
+                                                    <ul>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/architecture/architecture/">Architecture</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/architecture/deployment-architecture/">Deployment Architecture</a></li>
+                                                        
+                                                        
+                                                        
+                                                    </ul>
+                                                </li>
+                                                
+                                                <li class="docs-nav-item top-level ">
+                                                    
+                                                    <a href="/developer/developer-area/">Developer</a>
+                                                    <ul>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/developer-area/">Developer Area</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/web-portal/">Web Portal</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/data-processing/">Data Processing</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/data-persistence/">Data Persistence</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/platform-monitoring/">Platform Monitoring</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/system-deployment/">System Deployment</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/developer/artifactory/">Artifactory</a></li>
+                                                        
+                                                        
+                                                            <li class="docs-nav-item">
+                                                                <a href="https://github.com/DanMartyns/SoftwareEngineering" target="_blank">Code Repository</a>
+                                                            </li>
+                                                        
+                                                        
+                                                    </ul>
+                                                </li>
+                                                
+                                                <li class="docs-nav-item top-level ">
+                                                    
+                                                    <a href="/manual/user-manual/">Manual</a>
+                                                    <ul>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/manual/user-manual/">User Manual</a></li>
+                                                        
+                                                        
+                                                        
+                                                    </ul>
+                                                </li>
+                                                
+                                                <li class="docs-nav-item top-level current">
+                                                    
+                                                    <a href="/specification/context-and-scope/">Specification</a>
+                                                    <ul>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/specification/context-and-scope/">Context And Scope</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/specification/requirements-and-features/">Requirements And Features</a></li>
+                                                        
+                                                        <li class="docs-nav-item current"><a href="/specification/scenarios-and-use-cases/">Scenarios And Use Cases</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/specification/data-model/">Data Model</a></li>
+                                                        
+                                                        
+                                                        
+                                                    </ul>
+                                                </li>
+                                                
+                                                <li class="docs-nav-item top-level ">
+                                                    
+                                                    <a href="/team/the-team/">Team</a>
+                                                    <ul>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/team/the-team/">The Team</a></li>
+                                                        
+                                                        <li class="docs-nav-item "><a href="/team/milestones/">Milestones</a></li>
+                                                        
+                                                        
+                                                        
+                                                            <li class="docs-nav-item">
+                                                                <a href="/blog.html">Weekly log</a>
+                                                            </li>
+                                                            <li class="docs-nav-item">
+                                                                <a href="https://docs.google.com/spreadsheets/d/104kt8YnjNS1ZUFQNQ1pesl0or72m1JpABVdut2p8vCI/edit?usp=sharing" target="_blank">Timesheet</a>
+                                                            </li>
+                                                        
+                                                    </ul>
+                                                </li>
+                                                
+                                            </ul>
+
+                                            <ul>
+                                                <li class="nav-item top-level ">
+                                                    
+                                                    <a href="/design/"></a>
+                                                </li>
+                                            </ul>
+
+                                            <ul>
+
+                                            </ul>
+                                        </nav>
+
+                                    </section>
+                                </div>
+
+                        </div>
+                        <div class="8u skel-cell-important">
+                            <!-- Content -->
+                            <article class="content">
+                                <h2 id="scenarios">Scenarios</h2>
+
+<p>This section describes three important scenarios where the platform can be be useful to answer the user needs.</p>
+
+<p><strong>Farm daily monitoring</strong></p>
+
+<p>Bob is a farmer who has multiple lands, on which he built farms, and who doesn’t have the time neither the human resources to take care of all of them. He needs to monitor the temperature and humidity of all his plants, so that they can grow in good conditions. He uses SmartFarm to monitor all his farms and the environmental conditions they’re exposed to, watching real-time and past values from the sensors distributed in the farm.</p>
+
+<p><strong>Farm notification awareness</strong></p>
+
+<p>Bob needs to monitor the extreme temperatures in his farms, since these extreme conditions can ruin all his plantation. He uses Smartfarm to define alerts in charge of notifying him whenever an extreme weather condition occurs.</p>
+
+<p><strong>Farm automated actuation</strong></p>
+
+<p>Bob installed a physical infrastructure on his farm that acts similar to a greenhouse and that is fully automated. This infrastructure can avoid that the plants suffer from extreme weather conditions. The greenhouse can also irrigate the plants whenever needed. To monitor the watering of the plants, Bob uses SmartFarm to set actions so that, when extreme temperatures arise, the plantation will automatically be watered.</p>
+
+<h2 id="use-cases">Use Cases</h2>
+
+<p>The following section describes the most important use cases targeted in the system. <strong>All use cases described were tested</strong> and are part of the build pipeline. According to its scope, the use cases are divided in three subsections: Sensor persistence, sensor state and alarms &amp; actuators.</p>
+
+<p><strong>Sensor Persistence</strong></p>
+
+<table class="docs-table use-cases-table">
+  <thead>
+    <tr>
+      <th>Use case</th>
+      <th>Read Sensor Last Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Description</td>
+      <td>Read last value sent from sensor</td>
+    </tr>
+    <tr>
+      <td>Given</td>
+      <td>the sensor id 5672</td>
+    </tr>
+    <tr>
+      <td>When</td>
+      <td>the sensor 5672 sends the value 15.2 to the platform</td>
+    </tr>
+    <tr>
+      <td>Then</td>
+      <td>the value 15.2 is available on the platform</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="docs-table use-cases-table">
+  <thead>
+    <tr>
+      <th>Use case</th>
+      <th>Read Sensor Historic Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Description</td>
+      <td>Read historic values from sensor</td>
+    </tr>
+    <tr>
+      <td>Given</td>
+      <td>the sensor id 9373</td>
+    </tr>
+    <tr>
+      <td>When</td>
+      <td>the sensor 9373 sends the values -1, 15 and 0 to the platform</td>
+    </tr>
+    <tr>
+      <td>Then</td>
+      <td>the values -1, 15 and 0 is available on the platform</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Sensor State</strong></p>
+
+<table class="docs-table use-cases-table">
+  <thead>
+    <tr>
+      <th>Use case</th>
+      <th>Change Sensor State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Description</td>
+      <td>Sensor changes his state by sending a message</td>
+    </tr>
+    <tr>
+      <td>Given</td>
+      <td>the sensor id 666</td>
+    </tr>
+    <tr>
+      <td>When</td>
+      <td>the sensor 666 sends data to the platform with status:”broken”</td>
+    </tr>
+    <tr>
+      <td>Then</td>
+      <td>the sensor status should be broken</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="docs-table use-cases-table">
+  <thead>
+    <tr>
+      <th>Use case</th>
+      <th>Visualize farm location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Description</td>
+      <td>Visualize farm sensors’ location on a map</td>
+    </tr>
+    <tr>
+      <td>Given</td>
+      <td>a new sensor with latitude 37.5 and longitude 23.6</td>
+    </tr>
+    <tr>
+      <td>When</td>
+      <td>the user checks the sensor description</td>
+    </tr>
+    <tr>
+      <td>Then</td>
+      <td>the sensor latitude and longitude should be 37.5 and 23.6, respectively</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="docs-table use-cases-table">
+  <thead>
+    <tr>
+      <th>Use case</th>
+      <th>Sensor average value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Description</td>
+      <td>Read the average value from a sensor</td>
+    </tr>
+    <tr>
+      <td>Given</td>
+      <td>a new sensor with id 4746</td>
+    </tr>
+    <tr>
+      <td>When</td>
+      <td>the sensor 4746 sends values 13.5, 16.5 and 15.0 to the platform</td>
+    </tr>
+    <tr>
+      <td>Then</td>
+      <td>the average value of the sensor should be 15.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Alarms &amp; Actuators</strong></p>
+
+<table class="docs-table use-cases-table">
+  <thead>
+    <tr>
+      <th>Use case</th>
+      <th>Trigger an alert</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Description</td>
+      <td>Sensor sends a value that triggers an alert</td>
+    </tr>
+    <tr>
+      <td>Given</td>
+      <td>an alert of type “min” and threshold 20 for the sensor 1234</td>
+    </tr>
+    <tr>
+      <td>When</td>
+      <td>the sensor 1234 sends to the platform the value 21</td>
+    </tr>
+    <tr>
+      <td>Then</td>
+      <td>an alert is triggered</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="docs-table use-cases-table">
+  <thead>
+    <tr>
+      <th>Use case</th>
+      <th>Actuator sends value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Description</td>
+      <td>Sensor sends a value that triggers an alert that has an actuator</td>
+    </tr>
+    <tr>
+      <td>Given</td>
+      <td>an alert defined with id of type “max” and threshold 10 for the sensor 4321 with an actuator defined for the sensor 29 with the value “ON”</td>
+    </tr>
+    <tr>
+      <td>When</td>
+      <td>the sensor 4321 sends the value 15 to the platform</td>
+    </tr>
+    <tr>
+      <td>Then</td>
+      <td>the sensor 29 will receive a message with the value “ON”</td>
+    </tr>
+  </tbody>
+</table>
+
+
+                            </article>
+
+                        </div>
+                    </div>
+                </section>
+
+            </section>
+
+
+
+    <!-- Footer -->
+<footer id="footer">
+
+    <ul class="icons">
+        <li><a style="border-bottom: none;" href="http://www.ua.pt/" class=""><img class="label" src="/images/ua-logo.png"></img></a></li>
+    </ul>
+
+    <ul class="copyright">
+        <li>&copy; HeartRateMonitor 2019</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+
+</footer>
+
+  </body>
+
+</html>
