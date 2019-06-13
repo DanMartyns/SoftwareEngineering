@@ -6,7 +6,7 @@
 
 (function($) {
 
-    baseurl = '/~SoftwareEngineering';
+    baseurl = '/~SoftwareEngineering/docs';
     //baseurl = '';
 	skel.init({
 		reset: 'full',
