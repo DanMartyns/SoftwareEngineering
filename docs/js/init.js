@@ -7,7 +7,7 @@
 (function($) {
 
     baseurl = '/~SoftwareEngineering';
-    baseurl = '';
+    //baseurl = '';
 	skel.init({
 		reset: 'full',
 		breakpoints: {
