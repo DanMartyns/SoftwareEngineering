@@ -1,0 +1,10 @@
+version: '3'
+services:
+  documentation:
+    container_name : Documentation   
+    build:
+        context: ./
+    command: jekyll serve
+    image: jekyll/jekyll:latest
+    ports:
+      - 40200:4000
