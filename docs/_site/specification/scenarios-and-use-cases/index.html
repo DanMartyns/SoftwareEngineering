@@ -305,141 +305,60 @@ he wanted to know how his heart rate reacts to a video of spiders, in order to k
   </tbody>
 </table>
 
-<p><strong>Sensor State</strong></p>
+<p><strong>Main State</strong></p>
 
 <table class="docs-table use-cases-table">
   <thead>
     <tr>
       <th>Use case</th>
-      <th>Change Sensor State</th>
+      <th>Change Main State</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Description</td>
-      <td>Sensor changes his state by sending a message</td>
+      <td>Main changes his state when receive a value from the sensor</td>
     </tr>
     <tr>
       <td>Given</td>
-      <td>the sensor id 666</td>
+      <td>the sensor id IL0111111</td>
     </tr>
     <tr>
       <td>When</td>
-      <td>the sensor 666 sends data to the platform with status:”broken”</td>
+      <td>the sensor IL0111111 sends data to the platform with a value</td>
     </tr>
     <tr>
       <td>Then</td>
-      <td>the sensor status should be broken</td>
+      <td>the main send a log message “Data processed and sended to dashboard”</td>
     </tr>
   </tbody>
 </table>
 
-<table class="docs-table use-cases-table">
-  <thead>
-    <tr>
-      <th>Use case</th>
-      <th>Visualize farm location</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Description</td>
-      <td>Visualize farm sensors’ location on a map</td>
-    </tr>
-    <tr>
-      <td>Given</td>
-      <td>a new sensor with latitude 37.5 and longitude 23.6</td>
-    </tr>
-    <tr>
-      <td>When</td>
-      <td>the user checks the sensor description</td>
-    </tr>
-    <tr>
-      <td>Then</td>
-      <td>the sensor latitude and longitude should be 37.5 and 23.6, respectively</td>
-    </tr>
-  </tbody>
-</table>
+<p><strong>Dashboard State</strong></p>
 
 <table class="docs-table use-cases-table">
   <thead>
     <tr>
       <th>Use case</th>
-      <th>Sensor average value</th>
+      <th>Visualize real-time heartbeat</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Description</td>
-      <td>Read the average value from a sensor</td>
+      <td>Visualize heartbeat on the dashboard</td>
     </tr>
     <tr>
       <td>Given</td>
-      <td>a new sensor with id 4746</td>
+      <td>a processed value from the main project</td>
     </tr>
     <tr>
       <td>When</td>
-      <td>the sensor 4746 sends values 13.5, 16.5 and 15.0 to the platform</td>
+      <td>the user checks his heartbeat</td>
     </tr>
     <tr>
       <td>Then</td>
-      <td>the average value of the sensor should be 15.0</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Alarms &amp; Actuators</strong></p>
-
-<table class="docs-table use-cases-table">
-  <thead>
-    <tr>
-      <th>Use case</th>
-      <th>Trigger an alert</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Description</td>
-      <td>Sensor sends a value that triggers an alert</td>
-    </tr>
-    <tr>
-      <td>Given</td>
-      <td>an alert of type “min” and threshold 20 for the sensor 1234</td>
-    </tr>
-    <tr>
-      <td>When</td>
-      <td>the sensor 1234 sends to the platform the value 21</td>
-    </tr>
-    <tr>
-      <td>Then</td>
-      <td>an alert is triggered</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="docs-table use-cases-table">
-  <thead>
-    <tr>
-      <th>Use case</th>
-      <th>Actuator sends value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Description</td>
-      <td>Sensor sends a value that triggers an alert that has an actuator</td>
-    </tr>
-    <tr>
-      <td>Given</td>
-      <td>an alert defined with id of type “max” and threshold 10 for the sensor 4321 with an actuator defined for the sensor 29 with the value “ON”</td>
-    </tr>
-    <tr>
-      <td>When</td>
-      <td>the sensor 4321 sends the value 15 to the platform</td>
-    </tr>
-    <tr>
-      <td>Then</td>
-      <td>the sensor 29 will receive a message with the value “ON”</td>
+      <td>the dashboard gives him the exactly value received from sensor</td>
     </tr>
   </tbody>
 </table>
